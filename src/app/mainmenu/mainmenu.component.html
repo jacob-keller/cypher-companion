@@ -1,0 +1,33 @@
+<!-- title bar -->
+<nav ngbNav #nav="ngbNav" [(activeId)]="active" class="navbar navbar-expand-md nav-tabs navbar-light bg-light pb-0 mb-0">
+  <a class="navbar-brand ms-3">
+    <i class="bi-journal-bookmark"></i>
+    Cypher Companion
+  </a>
+  <ng-container [ngbNavItem]="1">
+    <a ngbNavLink>Skills</a>
+    <ng-template ngbNavContent><p>Skills</p></ng-template>
+  </ng-container>
+  <ng-container [ngbNavItem]="2" class="nav-item">
+    <a ngbNavLink>Abilities</a>
+    <ng-template ngbNavContent><p>Abilities</p></ng-template>
+  </ng-container>
+  <ng-container [ngbNavItem]="3" class="nav-item">
+    <a ngbNavLink>Cyphers</a>
+    <ng-template ngbNavContent><p>Cyphers</p></ng-template>
+  </ng-container>
+  <ng-container [ngbNavItem]="4" class="nav-item">
+    <a ngbNavLink>Equipment</a>
+    <ng-template ngbNavContent><p>Equipment</p></ng-template>
+  </ng-container>
+  <ng-container [ngbNavItem]="5" class="nav-item">
+    <a ngbNavLink>Background</a>
+    <ng-template ngbNavContent><p>Background</p></ng-template>
+  </ng-container>
+  <ng-container [ngbNavItem]="6" class="nav-item">
+    <a ngbNavLink>Notes</a>
+    <ng-template ngbNavContent><p>Notes</p></ng-template>
+  </ng-container>
+</nav>
+<div [ngbNavOutlet]="nav"></div>
+<pre>Active: {{ active }}</pre>
