@@ -1,2 +1,15 @@
-<app-mainmenu></app-mainmenu>
-<router-outlet></router-outlet>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col g-0">
+      <app-mainmenu></app-mainmenu>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-auto d-none d-sm-block">
+      <app-character-summary></app-character-summary>
+    </div>
+    <div class="col">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
