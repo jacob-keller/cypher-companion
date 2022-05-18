@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'equipment', component: EquipmentComponent },
   { path: 'background', component: BackgroundComponent },
   { path: 'notes', component: NotesComponent },
+  { path: '', redirectTo: '/skills', pathMatch: 'full' },
 ];
 
 @NgModule({
