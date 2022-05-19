@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+/** @format */
+
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-character-notes',
-  templateUrl: './notes.component.html',
-  styleUrls: ['./notes.component.css']
+  selector: "app-character-notes",
+  templateUrl: "./notes.component.html",
+  styleUrls: ["./notes.component.css"],
 })
 export class NotesComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

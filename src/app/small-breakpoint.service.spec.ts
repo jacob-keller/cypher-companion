@@ -1,8 +1,10 @@
-import { TestBed } from '@angular/core/testing';
+/** @format */
 
-import { SummaryBreakpointService } from './summary-breakpoint.service';
+import { TestBed } from "@angular/core/testing";
 
-describe('SummaryBreakpointService', () => {
+import { SummaryBreakpointService } from "./summary-breakpoint.service";
+
+describe("SummaryBreakpointService", () => {
   let service: SummaryBreakpointService;
 
   beforeEach(() => {
@@ -10,7 +12,7 @@ describe('SummaryBreakpointService', () => {
     service = TestBed.inject(SummaryBreakpointService);
   });
 
-  it('should be created', () => {
+  it("should be created", () => {
     expect(service).toBeTruthy();
   });
 });

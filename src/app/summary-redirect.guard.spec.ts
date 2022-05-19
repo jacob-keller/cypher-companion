@@ -1,8 +1,10 @@
-import { TestBed } from '@angular/core/testing';
+/** @format */
 
-import { SummaryRedirectGuard } from './summary-redirect.guard';
+import { TestBed } from "@angular/core/testing";
 
-describe('SummaryRedirectGuard', () => {
+import { SummaryRedirectGuard } from "./summary-redirect.guard";
+
+describe("SummaryRedirectGuard", () => {
   let guard: SummaryRedirectGuard;
 
   beforeEach(() => {
@@ -10,7 +12,7 @@ describe('SummaryRedirectGuard', () => {
     guard = TestBed.inject(SummaryRedirectGuard);
   });
 
-  it('should be created', () => {
+  it("should be created", () => {
     expect(guard).toBeTruthy();
   });
 });

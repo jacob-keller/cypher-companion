@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+/** @format */
+
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-character-skills',
-  templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.css']
+  selector: "app-character-skills",
+  templateUrl: "./skills.component.html",
+  styleUrls: ["./skills.component.css"],
 })
 export class SkillsComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -1,16 +1,17 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/** @format */
 
-import { BackgroundComponent } from './background.component';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-describe('BackgroundComponent', () => {
+import { BackgroundComponent } from "./background.component";
+
+describe("BackgroundComponent", () => {
   let component: BackgroundComponent;
   let fixture: ComponentFixture<BackgroundComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BackgroundComponent ]
-    })
-    .compileComponents();
+      declarations: [BackgroundComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +20,7 @@ describe('BackgroundComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

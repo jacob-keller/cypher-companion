@@ -1,8 +1,10 @@
-import { TestBed } from '@angular/core/testing';
+/** @format */
 
-import { LastNonSummaryViewService } from './last-non-summary-view.service';
+import { TestBed } from "@angular/core/testing";
 
-describe('LastNonSummaryViewService', () => {
+import { LastNonSummaryViewService } from "./last-non-summary-view.service";
+
+describe("LastNonSummaryViewService", () => {
   let service: LastNonSummaryViewService;
 
   beforeEach(() => {
@@ -10,7 +12,7 @@ describe('LastNonSummaryViewService', () => {
     service = TestBed.inject(LastNonSummaryViewService);
   });
 
-  it('should be created', () => {
+  it("should be created", () => {
     expect(service).toBeTruthy();
   });
 });

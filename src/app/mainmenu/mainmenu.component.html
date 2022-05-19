@@ -1,16 +1,39 @@
+<!-- @format -->
+
 <!-- title bar -->
-<nav ngbNav #nav="ngbNav" class="navbar navbar-expand-md nav-tabs navbar-light bg-light pb-0 mb-0">
+<nav
+  ngbNav
+  #nav="ngbNav"
+  class="navbar navbar-expand-md nav-tabs navbar-light bg-light pb-0 mb-0"
+>
   <a class="navbar-brand ms-3">
     <i class="bi-journal-bookmark"></i>
     Cypher Companion
   </a>
-  <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+  <button
+    class="navbar-toggler"
+    type="button"
+    (click)="isMenuCollapsed = !isMenuCollapsed"
+  >
     <i class="bi-menu-up"></i>
   </button>
-  <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
-    <div *ngFor="let link of links" class="g-0" [ngClass]="{'d-sm-none': link.route === 'summary'}">
+  <div
+    [ngbCollapse]="isMenuCollapsed"
+    class="collapse navbar-collapse"
+  >
+    <div
+      *ngFor="let link of links"
+      class="g-0"
+      [ngClass]="{ 'd-sm-none': link.route === 'summary' }"
+    >
       <ng-container [ngbNavItem]="link.route">
-        <a ngbNavLink routerLinkActive="active" [routerLink]="link.route" (click)="isMenuCollapsed = true">{{ link.title }}</a>
+        <a
+          ngbNavLink
+          routerLinkActive="active"
+          [routerLink]="link.route"
+          (click)="isMenuCollapsed = true"
+          >{{ link.title }}</a
+        >
       </ng-container>
     </div>
   </div>
