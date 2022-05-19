@@ -1,5 +1,5 @@
 <!-- title bar -->
-<nav ngbNav #nav="ngbNav" [(activeId)]="active" class="navbar navbar-expand-md nav-tabs navbar-light bg-light pb-0 mb-0">
+<nav ngbNav #nav="ngbNav" class="navbar navbar-expand-md nav-tabs navbar-light bg-light pb-0 mb-0">
   <a class="navbar-brand ms-3">
     <i class="bi-journal-bookmark"></i>
     Cypher Companion
@@ -8,28 +8,10 @@
     <i class="bi-menu-up"></i>
   </button>
   <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
-    <div class="d-sm-none">
-      <ng-container [ngbNavItem]="0">
-        <a ngbNavLink routerLink="summary" (click)="isMenuCollapsed = true">Summary</a>
+    <div *ngFor="let link of links" class="g-0" [ngClass]="{'d-sm-none': link.route === 'summary'}">
+      <ng-container [ngbNavItem]="link.route">
+        <a ngbNavLink routerLinkActive="active" [routerLink]="link.route" (click)="isMenuCollapsed = true">{{ link.title }}</a>
       </ng-container>
     </div>
-    <ng-container [ngbNavItem]="1">
-      <a ngbNavLink routerLink="skills" (click)="isMenuCollapsed = true">Skills</a>
-    </ng-container>
-    <ng-container [ngbNavItem]="2" class="nav-item">
-      <a ngbNavLink routerLink="abilities" (click)="isMenuCollapsed = true">Abilities</a>
-    </ng-container>
-    <ng-container [ngbNavItem]="3" class="nav-item">
-      <a ngbNavLink routerLink="cyphers" (click)="isMenuCollapsed = true">Cyphers</a>
-    </ng-container>
-    <ng-container [ngbNavItem]="4" class="nav-item">
-      <a ngbNavLink routerLink="equipment" (click)="isMenuCollapsed = true">Equipment</a>
-    </ng-container>
-    <ng-container [ngbNavItem]="5" class="nav-item">
-      <a ngbNavLink routerLink="background" (click)="isMenuCollapsed = true">Background</a>
-    </ng-container>
-    <ng-container [ngbNavItem]="6" class="nav-item">
-      <a ngbNavLink routerLink="notes" (click)="isMenuCollapsed = true">Notes</a>
-    </ng-container>
   </div>
 </nav>

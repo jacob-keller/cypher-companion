@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgbNav } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-mainmenu',
@@ -7,15 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainmenuComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
   // Property controlling whether the menu is collapsed. Default it to true
   // so that the menu does not appear by default on a small screen.
   public isMenuCollapsed = true;
 
-  // Controls currently active menu item
-  public active = 1;
+  links = [
+    { title: 'Summary', route: 'summary' },
+    { title: 'Skills', route: 'skills' },
+    { title: 'Abilities', route: 'abilities' },
+    { title: 'Cyphers', route: 'cyphers' },
+    { title: 'Equipment', route: 'equipment' },
+    { title: 'Background', route: 'background' },
+    { title: 'Notes', route: 'notes' },
+  ];
+
+  @ViewChild(NgbNav, {static: true})
+  ngbNav!: NgbNav;
+
+  constructor(public router: Router) { }
+
+  ngOnInit(): void {
+    const urlPath = this.router.url;
+    this.ngbNav.select(urlPath);
+  }
 }
