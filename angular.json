@@ -1,7 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "c553d8c9-f854-4eff-b1b7-05849e858050"
+    "analytics": "c553d8c9-f854-4eff-b1b7-05849e858050",
+    "defaultCollection": "@angular-eslint/schematics"
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -108,6 +109,15 @@
           "builder": "angular-cli-ghpages:deploy",
           "options": {
             "baseHref": "/cypher-companion/"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
