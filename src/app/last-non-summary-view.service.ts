@@ -6,13 +6,20 @@ import { Router, NavigationEnd, Event } from '@angular/router';
 })
 export class LastNonSummaryViewService {
 
-  private lastView : string = '';
+  // By default, if we haven't yet navigated anywhere, use /skills
+  //
+  // If the user fully redirects manually to summary, it will potentially do
+  // a fresh page reload. If this occurs, we'll default to skills. Perhaps
+  // we want to keep this in local or session storage?
+  private lastView : string = '/skills';
 
   constructor(private router : Router) {
     router.events.subscribe((event : Event) => {
       if (event instanceof NavigationEnd) {
-        if (event.url !== '/summary') {
-          this.lastView = event.urlAfterRedirects;
+        const url = event.urlAfterRedirects;
+
+        if (url !== '/summary' && url !== '') {
+          this.lastView = url;
         }
       }
     });
