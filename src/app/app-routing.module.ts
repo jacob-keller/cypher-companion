@@ -9,8 +9,10 @@ import { EquipmentComponent } from './character/equipment/equipment.component';
 import { BackgroundComponent } from './character/background/background.component';
 import { NotesComponent } from './character/notes/notes.component';
 
+import { SummaryRedirectGuard } from './summary-redirect.guard';
+
 const routes: Routes = [
-  { path: 'summary', component: SummaryComponent },
+  { path: 'summary', component: SummaryComponent, canActivate: [SummaryRedirectGuard] },
   { path: 'skills', component: SkillsComponent },
   { path: 'abilities', component: AbilitiesComponent },
   { path: 'cyphers', component: CyphersComponent },
