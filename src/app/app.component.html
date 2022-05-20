@@ -1,22 +1,74 @@
 <!-- @format -->
 
-<!-- care should be taken when adjusting these, as even small adjustments
-  can result in losing the flexible growth to fill the screen. -->
 <div class="container-fluid d-flex flex-column min-vh-100 g-0">
   <div class="row d-flex g-0">
-    <div class="col flex-grow-1 g-0">
-      <app-mainmenu></app-mainmenu>
-    </div>
+    <mat-toolbar class="menu-toolbar col flex-grow-1 g-0">
+      <i class="bi-journal-bookmark"></i>
+      <h1 class="menu-app-name">Cypher Companion</h1>
+      <div class="d-none d-md-inline">
+        <mat-nav-list class="container-fluid d-flex gy-0 my-0 py-0">
+          <div
+            *ngFor="let link of links"
+            class="g-0"
+            [ngClass]="{ 'd-sm-none': link.route === 'summary' }"
+          >
+            <a
+              mat-stroked-button
+              [routerLink]="link.route"
+              routerLinkActive="mat-accent"
+            >
+              {{ link.title }}</a
+            >
+          </div>
+        </mat-nav-list>
+      </div>
+      <span class="spacer"></span>
+      <div class="d-md-none">
+        <button (click)="snav.toggle()"><i class="bi-menu-up"></i></button>
+      </div>
+    </mat-toolbar>
   </div>
-  <div class="row flex-grow-1 d-flex flex-row g-0">
-    <div class="col-auto d-none d-sm-flex m-3">
-      <app-character-summary></app-character-summary>
-    </div>
-    <div class="col-auto d-none d-sm-flex my-3">
-      <div class="vr"></div>
-    </div>
-    <div class="col m-3">
-      <router-outlet></router-outlet>
-    </div>
+  <div class="row flex-row d-flex flex-grow-1 g-0">
+    <mat-sidenav-container class="d-flex flex-grow-1">
+      <mat-sidenav
+        #snav
+        mode="over"
+        position="end"
+        autoFocus="false"
+      >
+        <div class="container">
+          <mat-nav-list>
+            <div
+              *ngFor="let link of links"
+              class="g-0"
+              [ngClass]="{ 'd-sm-none': link.route === 'summary' }"
+            >
+              <a
+                mat-stroked-button
+                [routerLink]="link.route"
+                routerLinkActive="mat-accent"
+                (click)="snav.close()"
+              >
+                {{ link.title }}</a
+              >
+            </div>
+          </mat-nav-list>
+        </div>
+      </mat-sidenav>
+      <mat-sidenav-content class="d-flex flex-grow-1">
+        <div class="row flex-grow-1 d-flex flex-row g-0">
+          <div class="col-auto d-none d-sm-flex m-3">
+            <app-character-summary></app-character-summary>
+          </div>
+          <!-- TODO: investigate using border on the summary div instead -->
+          <div class="col-auto d-none d-sm-flex my-3">
+            <div class="vr"></div>
+          </div>
+          <div class="col m-3">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
   </div>
 </div>

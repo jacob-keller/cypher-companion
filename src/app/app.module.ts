@@ -2,11 +2,17 @@
 
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
+import { RouterModule } from "@angular/router";
+import { OverlayModule } from "@angular/cdk/overlay";
+
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatButtonModule } from "@angular/material/button";
+import { MatListModule } from "@angular/material/list";
+import { MatToolbarModule } from "@angular/material/toolbar";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MainmenuComponent } from "./mainmenu/mainmenu.component";
 import { SummaryComponent } from "./character/summary/summary.component";
 import { SkillsComponent } from "./character/skills/skills.component";
 import { AbilitiesComponent } from "./character/abilities/abilities.component";
@@ -18,7 +24,6 @@ import { NotesComponent } from "./character/notes/notes.component";
 @NgModule({
   declarations: [
     AppComponent,
-    MainmenuComponent,
     SummaryComponent,
     SkillsComponent,
     AbilitiesComponent,
@@ -27,7 +32,17 @@ import { NotesComponent } from "./character/notes/notes.component";
     BackgroundComponent,
     NotesComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    RouterModule,
+    OverlayModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatListModule,
+    MatToolbarModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -18,4 +18,14 @@ export class AppComponent {
   // if we're on the summary page. If we use small break point in another
   // view it might become necessary to load it here.
   constructor(private view: LastNonSummaryViewService) {}
+
+  public links = [
+    { title: "Summary", route: "summary" },
+    { title: "Skills", route: "skills" },
+    { title: "Abilities", route: "abilities" },
+    { title: "Cyphers", route: "cyphers" },
+    { title: "Equipment", route: "equipment" },
+    { title: "Background", route: "background" },
+    { title: "Notes", route: "notes" },
+  ];
 }
