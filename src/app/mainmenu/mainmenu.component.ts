@@ -7,7 +7,7 @@ import { NgbNav } from "@ng-bootstrap/ng-bootstrap";
 @Component({
   selector: "app-mainmenu",
   templateUrl: "./mainmenu.component.html",
-  styleUrls: ["./mainmenu.component.css"],
+  styleUrls: ["./mainmenu.component.scss"],
 })
 export class MainmenuComponent implements OnInit {
   // Property controlling whether the menu is collapsed. Default it to true
