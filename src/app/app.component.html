@@ -44,9 +44,9 @@
               [ngClass]="{ 'd-sm-none': link.route === 'summary' }"
             >
               <a
-                mat-stroked-button
+                mat-list-item
                 [routerLink]="link.route"
-                routerLinkActive="mat-accent"
+                routerLinkActive="accent-text"
                 (click)="snav.close()"
               >
                 {{ link.title }}</a

@@ -1,0 +1,13 @@
+/** @formta */
+
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin accent-text($theme) {
+  $config: mat.get-color-config($theme);
+  $accent: map.get($config, accent);
+
+  .accent-text {
+    color: mat.get-color-from-palette($accent, text) !important;
+  }
+}
