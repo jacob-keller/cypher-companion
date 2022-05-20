@@ -6,7 +6,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { MainmenuComponent } from "./mainmenu/mainmenu.component";
 import { SummaryComponent } from "./character/summary/summary.component";
 import { SkillsComponent } from "./character/skills/skills.component";
@@ -28,7 +27,7 @@ import { NotesComponent } from "./character/notes/notes.component";
     BackgroundComponent,
     NotesComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, NgbModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
