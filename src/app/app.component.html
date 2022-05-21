@@ -5,6 +5,8 @@
     <mat-toolbar class="menu-toolbar col flex-grow-1 g-0">
       <i class="bi-journal-bookmark"></i>
       <h1 class="menu-app-name">Cypher Companion</h1>
+      <!-- this div only displays at medium or larger widths. This creates a
+        button-based menu which is used on the larger displays -->
       <div class="d-none d-md-inline">
         <mat-nav-list class="container-fluid d-flex gy-0 my-0 py-0">
           <div
@@ -36,6 +38,9 @@
         position="end"
         autoFocus="false"
       >
+        <!-- this div only displays at less than medium sized screens. This
+          creates a side-nav popout that lets mobile users see the menu only
+          when they need it -->
         <div class="container">
           <mat-nav-list>
             <div
