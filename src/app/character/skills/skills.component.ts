@@ -1,6 +1,8 @@
 /** @format */
 
 import { Component, OnInit } from "@angular/core";
+import { Skill, SkillType } from "./interface";
+import { CharacterSheetService } from "../sheet.service";
 
 @Component({
   selector: "app-character-skills",
@@ -8,7 +10,15 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./skills.component.scss"],
 })
 export class SkillsComponent implements OnInit {
-  constructor() {}
+  skills: Skill[] = [];
 
-  ngOnInit(): void {}
+  constructor(private sheet: CharacterSheetService) {}
+
+  getSkills(): void {
+    this.sheet.getSkills().subscribe((skills) => (this.skills = skills));
+  }
+
+  ngOnInit(): void {
+    this.getSkills();
+  }
 }

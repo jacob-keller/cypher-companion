@@ -1,3 +1,38 @@
 <!-- @format -->
 
-<p>skills works!</p>
+<div class="container overflow-hidden">
+  <div class="row">
+    <div class="col g-2">
+      <button
+        mat-raised-button
+        color="primary"
+      >
+        Add Skill
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col g-3">
+      <mat-accordion
+        multi
+        hideToggle
+        displayMode="flat"
+      >
+        <mat-expansion-panel *ngFor="let skill of skills">
+          <mat-expansion-panel-header>
+            <mat-panel-title> {{ skill.name }} </mat-panel-title>
+          </mat-expansion-panel-header>
+          {{ skill.description }}
+          <mat-action-row>
+            <button
+              mat-icon-button
+              color="warn"
+            >
+              <i class="bi-x-square-fill"></i>
+            </button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>
