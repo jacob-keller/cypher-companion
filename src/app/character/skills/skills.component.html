@@ -36,15 +36,27 @@
               {{ skill.name }}
             </mat-panel-title>
           </mat-expansion-panel-header>
-          {{ skill.description }}
-          <mat-action-row>
-            <button
-              mat-icon-button
-              color="warn"
-            >
-              <i class="bi-x-square-fill"></i>
-            </button>
-          </mat-action-row>
+          <div class="container-fluid d-flex flex-grow g-0 m-0 p-0">
+            <div class="p-3">{{ skill.description }}</div>
+            <div class="p-3 ms-auto">
+              <button
+                mat-icon-button
+                color="primary"
+                aria-label="Edit"
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+            </div>
+            <div class="p-3">
+              <button
+                mat-icon-button
+                color="warn"
+                aria-label="Delete"
+              >
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </div>
+          </div>
         </mat-expansion-panel>
       </mat-accordion>
     </div>
