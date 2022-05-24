@@ -1,8 +1,9 @@
 /** @format */
 
 import { Injectable } from "@angular/core";
-import { SkillType, Skill } from "./skills/interface";
+import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Observable, of } from "rxjs";
+import { SkillType, Skill } from "./skills/interface";
 
 @Injectable({
   providedIn: "root",
@@ -43,5 +44,9 @@ export class CharacterSheetService {
 
   getSkills(): Observable<Skill[]> {
     return of(this.skills);
+  }
+
+  moveSkill(event: CdkDragDrop<Skill[]>) {
+    moveItemInArray(this.skills, event.previousIndex, event.currentIndex);
   }
 }

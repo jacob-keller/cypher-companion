@@ -3,6 +3,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Skill, SkillType } from "./interface";
 import { CharacterSheetService } from "../sheet.service";
+import { CdkDragDrop } from "@angular/cdk/drag-drop";
 
 @Component({
   selector: "app-character-skills",
@@ -22,5 +23,9 @@ export class SkillsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSkills();
+  }
+
+  drop(event: CdkDragDrop<Skill[]>) {
+    this.sheet.moveSkill(event);
   }
 }

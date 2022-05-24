@@ -17,8 +17,13 @@
         multi
         hideToggle
         displayMode="flat"
+        cdkDropList
+        (cdkDropListDropped)="drop($event)"
       >
-        <mat-expansion-panel *ngFor="let skill of skills">
+        <mat-expansion-panel
+          *ngFor="let skill of skills"
+          cdkDrag
+        >
           <mat-expansion-panel-header>
             <mat-panel-title>
               <div *ngIf="skill.type === allSkillTypes.Inability">
