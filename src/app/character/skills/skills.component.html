@@ -20,7 +20,21 @@
       >
         <mat-expansion-panel *ngFor="let skill of skills">
           <mat-expansion-panel-header>
-            <mat-panel-title> {{ skill.name }} </mat-panel-title>
+            <mat-panel-title>
+              <div *ngIf="skill.type === allSkillTypes.Inability">
+                <mat-icon color="warn">exposure_neg_1</mat-icon>
+                <span class="cdk-visually-hidden">Inability</span>
+              </div>
+              <div *ngIf="skill.type === allSkillTypes.Trained">
+                <mat-icon color="primary">exposure_plus_1</mat-icon>
+                <span class="cdk-visually-hidden">Trained</span>
+              </div>
+              <div *ngIf="skill.type === allSkillTypes.Specialized">
+                <mat-icon color="primary">exposure_plus_2</mat-icon>
+                <span class="cdk-visually-hidden">Specialized</span>
+              </div>
+              {{ skill.name }}
+            </mat-panel-title>
           </mat-expansion-panel-header>
           {{ skill.description }}
           <mat-action-row>

@@ -10,6 +10,8 @@ import { CharacterSheetService } from "../sheet.service";
   styleUrls: ["./skills.component.scss"],
 })
 export class SkillsComponent implements OnInit {
+  allSkillTypes = SkillType;
+
   skills: Skill[] = [];
 
   constructor(private sheet: CharacterSheetService) {}
