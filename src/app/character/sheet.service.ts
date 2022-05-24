@@ -25,11 +25,11 @@ export class CharacterSheetService {
     {
       name: "Piercing Disguises",
       description: "Skill in seeing through or recognizing a disguise.",
-      type: SkillType.Trained,
+      type: SkillType.Specialized,
     },
     {
       name: "Recognizing Deception",
-      description: "Skill in recognizing deception or someone attempting to decieve you.",
+      description: "Skill in recognizing someone attempting to decieve you.",
       type: SkillType.Trained,
     },
     {
