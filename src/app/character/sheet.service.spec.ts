@@ -1,8 +1,10 @@
-import { TestBed } from '@angular/core/testing';
+/** @format */
 
-import { SheetService } from './sheet.service';
+import { TestBed } from "@angular/core/testing";
 
-describe('SheetService', () => {
+import { SheetService } from "./sheet.service";
+
+describe("SheetService", () => {
   let service: SheetService;
 
   beforeEach(() => {
@@ -10,7 +12,7 @@ describe('SheetService', () => {
     service = TestBed.inject(SheetService);
   });
 
-  it('should be created', () => {
+  it("should be created", () => {
     expect(service).toBeTruthy();
   });
 });
