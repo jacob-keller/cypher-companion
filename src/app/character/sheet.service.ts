@@ -49,4 +49,8 @@ export class CharacterSheetService {
   moveSkill(event: CdkDragDrop<Skill[]>) {
     moveItemInArray(this.skills, event.previousIndex, event.currentIndex);
   }
+
+  deleteSkill(i: number) {
+    this.skills.splice(i, 1);
+  }
 }

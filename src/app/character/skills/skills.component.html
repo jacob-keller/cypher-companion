@@ -21,7 +21,7 @@
         (cdkDropListDropped)="drop($event)"
       >
         <mat-expansion-panel
-          *ngFor="let skill of skills"
+          *ngFor="let skill of skills; index as i"
           cdkDrag
         >
           <mat-expansion-panel-header>
@@ -57,6 +57,7 @@
                 mat-icon-button
                 color="warn"
                 aria-label="Delete"
+                (click)="delete(i)"
               >
                 <mat-icon>cancel</mat-icon>
               </button>

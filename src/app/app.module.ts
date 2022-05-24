@@ -12,6 +12,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { MatIconModule } from "@angular/material/icon";
 import { DragDropModule } from "@angular/cdk/drag-drop";
+import { MatDialogModule } from "@angular/material/dialog";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -23,6 +24,7 @@ import { CyphersComponent } from "./character/cyphers/cyphers.component";
 import { EquipmentComponent } from "./character/equipment/equipment.component";
 import { BackgroundComponent } from "./character/background/background.component";
 import { NotesComponent } from "./character/notes/notes.component";
+import { SkillsDeleteComponent } from "./character/skills/delete/delete.component";
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { NotesComponent } from "./character/notes/notes.component";
     EquipmentComponent,
     BackgroundComponent,
     NotesComponent,
+    SkillsDeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ import { NotesComponent } from "./character/notes/notes.component";
     MatExpansionModule,
     MatIconModule,
     DragDropModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,9 +1,12 @@
 /** @format */
 
 import { Component, OnInit } from "@angular/core";
+import { CdkDragDrop } from "@angular/cdk/drag-drop";
+import { MatDialog } from "@angular/material/dialog";
+
 import { Skill, SkillType } from "./interface";
 import { CharacterSheetService } from "../sheet.service";
-import { CdkDragDrop } from "@angular/cdk/drag-drop";
+import { SkillsDeleteComponent } from "./delete/delete.component";
 
 @Component({
   selector: "app-character-skills",
@@ -15,7 +18,7 @@ export class SkillsComponent implements OnInit {
 
   skills: Skill[] = [];
 
-  constructor(private sheet: CharacterSheetService) {}
+  constructor(private sheet: CharacterSheetService, public deleteDialog: MatDialog) {}
 
   getSkills(): void {
     this.sheet.getSkills().subscribe((skills) => (this.skills = skills));
@@ -27,5 +30,17 @@ export class SkillsComponent implements OnInit {
 
   drop(event: CdkDragDrop<Skill[]>) {
     this.sheet.moveSkill(event);
+  }
+
+  delete(i: number) {
+    const dialogRef = this.deleteDialog.open(SkillsDeleteComponent, {
+      data: { skillName: this.skills[i].name },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.sheet.deleteSkill(i);
+      }
+    });
   }
 }
