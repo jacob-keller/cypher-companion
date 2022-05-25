@@ -25,7 +25,6 @@ export class AppComponent {
     { title: "Abilities", route: "abilities" },
     { title: "Cyphers", route: "cyphers" },
     { title: "Equipment", route: "equipment" },
-    { title: "Background", route: "background" },
     { title: "Notes", route: "notes" },
   ];
 }

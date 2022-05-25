@@ -22,7 +22,7 @@ export class LastNonSummaryViewService {
   }
 
   getLastView(): string {
-    const views = ["/skills", "/abilities", "/cyphers", "/equipment", "/background", "/notes"];
+    const views = ["/skills", "/abilities", "/cyphers", "/equipment", "/notes"];
 
     const lastView = sessionStorage.getItem(key);
     if (!lastView || !views.includes(lastView)) {
