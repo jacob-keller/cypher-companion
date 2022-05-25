@@ -46,11 +46,11 @@ export class CharacterSheetService {
     return of(this.skills);
   }
 
-  moveSkill(event: CdkDragDrop<Skill[]>) {
+  moveSkill(event: CdkDragDrop<Skill[]>): void {
     moveItemInArray(this.skills, event.previousIndex, event.currentIndex);
   }
 
-  deleteSkill(i: number) {
+  deleteSkill(i: number): void {
     this.skills.splice(i, 1);
   }
 }

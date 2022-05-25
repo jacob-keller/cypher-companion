@@ -1,13 +1,11 @@
 /** @format */
 
 export enum SkillType {
-  Inability,
-  Trained,
-  Specialized,
+  Inability = -1,
+  Trained = 1,
+  Specialized = 2,
 }
 
-export interface Skill {
-  name: string;
-  description: string;
-  type: SkillType;
+export class Skill {
+  constructor(public name: string, public description: string, public type: SkillType) {}
 }

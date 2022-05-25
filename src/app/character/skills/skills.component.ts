@@ -18,7 +18,7 @@ export class SkillsComponent implements OnInit {
 
   skills: Skill[] = [];
 
-  constructor(private sheet: CharacterSheetService, public deleteDialog: MatDialog) {}
+  constructor(private sheet: CharacterSheetService, public dialog: MatDialog) {}
 
   getSkills(): void {
     this.sheet.getSkills().subscribe((skills) => (this.skills = skills));
@@ -28,12 +28,12 @@ export class SkillsComponent implements OnInit {
     this.getSkills();
   }
 
-  drop(event: CdkDragDrop<Skill[]>) {
+  drop(event: CdkDragDrop<Skill[]>): void {
     this.sheet.moveSkill(event);
   }
 
-  delete(i: number) {
-    const dialogRef = this.deleteDialog.open(SkillsDeleteComponent, {
+  delete(i: number): void {
+    const dialogRef = this.dialog.open(SkillsDeleteComponent, {
       data: { skillName: this.skills[i].name },
     });
 
