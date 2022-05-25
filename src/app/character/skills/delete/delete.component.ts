@@ -3,6 +3,8 @@
 import { Component, OnInit, Inject } from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 
+import { Skill } from "../interface";
+
 @Component({
   selector: "app-character-skills-delete",
   templateUrl: "./delete.component.html",
@@ -10,7 +12,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 })
 export class SkillsDeleteComponent implements OnInit {
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: { skillName: string },
+    @Inject(MAT_DIALOG_DATA) public data: { skill: Readonly<Skill> },
     public dialogRef: MatDialogRef<SkillsDeleteComponent>,
   ) {}
 

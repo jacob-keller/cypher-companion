@@ -57,4 +57,8 @@ export class CharacterSheetService {
   addSkill(skill: Skill): void {
     this.skills.push(skill);
   }
+
+  replaceSkill(i: number, newSkill: Skill): void {
+    this.skills[i] = newSkill;
+  }
 }

@@ -1,7 +1,7 @@
 /** @format */
 
-import { Component, OnInit, Input } from "@angular/core";
-import { MatDialogRef } from "@angular/material/dialog";
+import { Component, OnInit, Input, Inject } from "@angular/core";
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { FormControl, Validators } from "@angular/forms";
 
 import { Skill, SkillType } from "../interface";
@@ -14,7 +14,23 @@ import { Skill, SkillType } from "../interface";
 export class SkillsAddEditComponent implements OnInit {
   allSkillTypes = SkillType;
 
-  constructor(public dialogRef: MatDialogRef<SkillsAddEditComponent>) {}
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: { skill: Readonly<Skill> },
+    public dialogRef: MatDialogRef<SkillsAddEditComponent>,
+  ) {
+    if (data.skill) {
+      /* The skill data is read only. This protects against directly
+       * modifying the contents outside of the sheet service.
+       *
+       * Instead, we copy the name, description, and type out to allow our
+       * components to edit. On dialog close, the skill data will be
+       * returned as a new skill which will overwrite the existing data.
+       */
+      this.name = data.skill.name;
+      this.description = data.skill.description;
+      this.type = data.skill.type;
+    }
+  }
 
   ngOnInit(): void {}
 
@@ -26,15 +42,15 @@ export class SkillsAddEditComponent implements OnInit {
 
   skillNameRequired = new FormControl("", [Validators.required]);
 
-  saveNewSkill(): void {
-    /* don't save the new skill if there is no name */
+  saveAndClose(): void {
+    /* don't save if there is no skill name */
     if (this.skillNameRequired.invalid) {
       return;
     }
 
     let skill = new Skill(this.name, this.description, this.type);
 
-    /* close the dialog and pass back the skill */
+    /* close the dialog and pass back the new skill contents */
     this.dialogRef.close(skill);
   }
 

@@ -17,7 +17,7 @@ import { SkillsAddEditComponent } from "./add-edit/add-edit.component";
 export class SkillsComponent implements OnInit {
   allSkillTypes = SkillType;
 
-  skills: Skill[] = [];
+  skills: Readonly<Skill>[] = [];
 
   constructor(private sheet: CharacterSheetService, public dialog: MatDialog) {}
 
@@ -29,13 +29,13 @@ export class SkillsComponent implements OnInit {
     this.getSkills();
   }
 
-  drop(event: CdkDragDrop<Skill[]>): void {
+  drop(event: CdkDragDrop<Readonly<Skill>[]>): void {
     this.sheet.moveSkill(event);
   }
 
   delete(i: number): void {
     const dialogRef = this.dialog.open(SkillsDeleteComponent, {
-      data: { skillName: this.skills[i].name },
+      data: { skill: this.skills[i] },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -46,11 +46,25 @@ export class SkillsComponent implements OnInit {
   }
 
   addNewSkill(): void {
-    const dialogRef = this.dialog.open(SkillsAddEditComponent);
+    const dialogRef = this.dialog.open(SkillsAddEditComponent, {
+      data: { skill: undefined },
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.sheet.addSkill(result);
+      }
+    });
+  }
+
+  editSkill(i: number): void {
+    const dialogRef = this.dialog.open(SkillsAddEditComponent, {
+      data: { skill: this.skills[i] },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.sheet.replaceSkill(i, result);
       }
     });
   }
