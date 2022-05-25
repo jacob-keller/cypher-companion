@@ -31,7 +31,7 @@ import { EquipmentComponent } from "./character/equipment/equipment.component";
 import { BackgroundComponent } from "./character/background/background.component";
 import { NotesComponent } from "./character/notes/notes.component";
 import { SkillsDeleteComponent } from "./character/skills/delete/delete.component";
-import { SkillsAddComponent } from "./character/skills/add/add.component";
+import { SkillsAddEditComponent } from "./character/skills/add-edit/add-edit.component";
 
 @NgModule({
   declarations: [
@@ -44,7 +44,7 @@ import { SkillsAddComponent } from "./character/skills/add/add.component";
     BackgroundComponent,
     NotesComponent,
     SkillsDeleteComponent,
-    SkillsAddComponent,
+    SkillsAddEditComponent,
   ],
   imports: [
     BrowserModule,

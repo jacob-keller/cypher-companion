@@ -7,7 +7,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { Skill, SkillType } from "./interface";
 import { CharacterSheetService } from "../sheet.service";
 import { SkillsDeleteComponent } from "./delete/delete.component";
-import { SkillsAddComponent } from "./add/add.component";
+import { SkillsAddEditComponent } from "./add-edit/add-edit.component";
 
 @Component({
   selector: "app-character-skills",
@@ -46,7 +46,7 @@ export class SkillsComponent implements OnInit {
   }
 
   addNewSkill(): void {
-    const dialogRef = this.dialog.open(SkillsAddComponent);
+    const dialogRef = this.dialog.open(SkillsAddEditComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {

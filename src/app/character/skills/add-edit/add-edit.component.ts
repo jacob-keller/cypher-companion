@@ -7,14 +7,14 @@ import { FormControl, Validators } from "@angular/forms";
 import { Skill, SkillType } from "../interface";
 
 @Component({
-  selector: "app-character-skills-add",
-  templateUrl: "./add.component.html",
-  styleUrls: ["./add.component.scss"],
+  selector: "app-character-skills-add-edit",
+  templateUrl: "./add-edit.component.html",
+  styleUrls: ["./add-edit.component.scss"],
 })
-export class SkillsAddComponent implements OnInit {
+export class SkillsAddEditComponent implements OnInit {
   allSkillTypes = SkillType;
 
-  constructor(public dialogRef: MatDialogRef<SkillsAddComponent>) {}
+  constructor(public dialogRef: MatDialogRef<SkillsAddEditComponent>) {}
 
   ngOnInit(): void {}
 
