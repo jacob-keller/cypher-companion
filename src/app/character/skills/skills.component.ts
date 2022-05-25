@@ -7,6 +7,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { Skill, SkillType } from "./interface";
 import { CharacterSheetService } from "../sheet.service";
 import { SkillsDeleteComponent } from "./delete/delete.component";
+import { SkillsAddComponent } from "./add/add.component";
 
 @Component({
   selector: "app-character-skills",
@@ -41,6 +42,14 @@ export class SkillsComponent implements OnInit {
       if (result) {
         this.sheet.deleteSkill(i);
       }
+    });
+  }
+
+  addNewSkill(): void {
+    const dialogRef = this.dialog.open(SkillsAddComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Add result: ${JSON.stringify(result)}`);
     });
   }
 }

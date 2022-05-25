@@ -1,0 +1,76 @@
+<!-- @format -->
+
+<h2 mat-dialog-title>Add a new skill</h2>
+<mat-dialog-content>
+  <div class="container-fluid">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Skill Name</mat-label>
+        <input
+          matInput
+          required
+          placeholder="Name"
+          [(ngModel)]="name"
+        />
+        <mat-hint>The name of the new skill</mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Skill Description</mat-label>
+        <textarea
+          matInput
+          cdkTextareaAutosize
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="2"
+          placeholder="Short description"
+          [(ngModel)]="description"
+        ></textarea>
+        <mat-hint>A short description of the skill</mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <div class="col-auto">
+        <mat-button-toggle-group
+          [(ngModel)]="type"
+          aria-label="Skill Type"
+        >
+          <mat-button-toggle
+            [value]="allSkillTypes.Inability"
+            aria-label="Inability"
+          >
+            <mat-icon color="warn">exposure_neg_1</mat-icon>
+          </mat-button-toggle>
+          <mat-button-toggle
+            [value]="allSkillTypes.Trained"
+            aria-label="Trained"
+          >
+            <mat-icon color="primary">exposure_plus_1</mat-icon>
+          </mat-button-toggle>
+          <mat-button-toggle
+            [value]="allSkillTypes.Specialized"
+            aria-label="Specialized"
+          >
+            <mat-icon color="primary">exposure_plus_2</mat-icon>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button
+    mat-button
+    mat-dialog-close
+    color="accent"
+  >
+    Cancel
+  </button>
+  <button
+    mat-button
+    (click)="saveNewSkill()"
+    color="primary"
+  >
+    Save
+  </button>
+</mat-dialog-actions>
