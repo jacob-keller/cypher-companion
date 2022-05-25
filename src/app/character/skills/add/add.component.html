@@ -8,10 +8,12 @@
         <mat-label>Skill Name</mat-label>
         <input
           matInput
+          [formControl]="skillNameRequired"
           required
           placeholder="Name"
           [(ngModel)]="name"
         />
+        <mat-error *ngIf="skillNameRequired.invalid">{{ getNameErrorMessage() }}</mat-error>
         <mat-hint>The name of the new skill</mat-hint>
       </mat-form-field>
     </div>
@@ -30,31 +32,49 @@
       </mat-form-field>
     </div>
     <div class="row">
-      <div class="col-auto">
-        <mat-button-toggle-group
-          [(ngModel)]="type"
+      <mat-form-field appearance="outline">
+        <mat-label>Skill Level</mat-label>
+        <mat-select
+          [(value)]="type"
           aria-label="Skill Type"
         >
-          <mat-button-toggle
+          <mat-select-trigger> {{ type }} </mat-select-trigger>
+          <mat-option
             [value]="allSkillTypes.Inability"
             aria-label="Inability"
           >
-            <mat-icon color="warn">exposure_neg_1</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle
+            <mat-icon
+              matPrefix
+              color="warn"
+              >exposure_neg_1</mat-icon
+            >
+            Inability
+          </mat-option>
+          <mat-option
             [value]="allSkillTypes.Trained"
             aria-label="Trained"
           >
-            <mat-icon color="primary">exposure_plus_1</mat-icon>
-          </mat-button-toggle>
-          <mat-button-toggle
+            <mat-icon
+              matPrefix
+              color="primary"
+              >exposure_plus_1</mat-icon
+            >
+            Trained
+          </mat-option>
+          <mat-option
             [value]="allSkillTypes.Specialized"
             aria-label="Specialized"
           >
-            <mat-icon color="primary">exposure_plus_2</mat-icon>
-          </mat-button-toggle>
-        </mat-button-toggle-group>
-      </div>
+            <mat-icon
+              matPrefix
+              color="primary"
+              >exposure_plus_2</mat-icon
+            >
+            Specialized
+          </mat-option>
+        </mat-select>
+        <mat-hint>Level of training in the skill</mat-hint>
+      </mat-form-field>
     </div>
   </div>
 </mat-dialog-content>

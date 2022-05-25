@@ -27,18 +27,30 @@
         >
           <mat-expansion-panel-header>
             <mat-panel-title>
-              <div *ngIf="skill.type === allSkillTypes.Inability">
-                <mat-icon color="warn">exposure_neg_1</mat-icon>
+              <ng-container *ngIf="skill.type === allSkillTypes.Inability">
                 <span class="cdk-visually-hidden">Inability</span>
-              </div>
-              <div *ngIf="skill.type === allSkillTypes.Trained">
-                <mat-icon color="primary">exposure_plus_1</mat-icon>
+                <mat-icon
+                  matPrefix
+                  color="warn"
+                  >exposure_neg_1</mat-icon
+                >
+              </ng-container>
+              <ng-container *ngIf="skill.type === allSkillTypes.Trained">
                 <span class="cdk-visually-hidden">Trained</span>
-              </div>
-              <div *ngIf="skill.type === allSkillTypes.Specialized">
-                <mat-icon color="primary">exposure_plus_2</mat-icon>
+                <mat-icon
+                  matPrefix
+                  color="primary"
+                  >exposure_plus_1</mat-icon
+                >
+              </ng-container>
+              <ng-container *ngIf="skill.type === allSkillTypes.Specialized">
                 <span class="cdk-visually-hidden">Specialized</span>
-              </div>
+                <mat-icon
+                  matPrefix
+                  color="primary"
+                  >exposure_plus_2</mat-icon
+                >
+              </ng-container>
               {{ skill.name }}
             </mat-panel-title>
           </mat-expansion-panel-header>

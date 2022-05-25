@@ -2,7 +2,7 @@
 
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { OverlayModule } from "@angular/cdk/overlay";
 
@@ -18,6 +18,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { TextFieldModule } from "@angular/cdk/text-field";
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
+import { MatSelectModule } from "@angular/material/select";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -48,6 +49,7 @@ import { SkillsAddComponent } from "./character/skills/add/add.component";
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     OverlayModule,
     AppRoutingModule,
@@ -64,6 +66,7 @@ import { SkillsAddComponent } from "./character/skills/add/add.component";
     MatInputModule,
     TextFieldModule,
     MatButtonToggleModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

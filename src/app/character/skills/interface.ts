@@ -1,9 +1,9 @@
 /** @format */
 
 export enum SkillType {
-  Inability = -1,
-  Trained = 1,
-  Specialized = 2,
+  Inability = "Inability",
+  Trained = "Trained",
+  Specialized = "Specialized",
 }
 
 export class Skill {

@@ -53,4 +53,8 @@ export class CharacterSheetService {
   deleteSkill(i: number): void {
     this.skills.splice(i, 1);
   }
+
+  addSkill(skill: Skill): void {
+    this.skills.push(skill);
+  }
 }

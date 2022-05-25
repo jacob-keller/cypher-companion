@@ -2,6 +2,7 @@
 
 import { Component, OnInit, Input } from "@angular/core";
 import { MatDialogRef } from "@angular/material/dialog";
+import { FormControl, Validators } from "@angular/forms";
 
 import { Skill, SkillType } from "../interface";
 
@@ -23,10 +24,25 @@ export class SkillsAddComponent implements OnInit {
 
   type: SkillType = SkillType.Trained;
 
+  skillNameRequired = new FormControl("", [Validators.required]);
+
   saveNewSkill(): void {
+    /* don't save the new skill if there is no name */
+    if (this.skillNameRequired.invalid) {
+      return;
+    }
+
     let skill = new Skill(this.name, this.description, this.type);
 
     /* close the dialog and pass back the skill */
     this.dialogRef.close(skill);
+  }
+
+  getNameErrorMessage() {
+    if (this.skillNameRequired.hasError("required")) {
+      return "A skill name is required";
+    }
+
+    return "";
   }
 }

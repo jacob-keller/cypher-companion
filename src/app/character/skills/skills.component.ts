@@ -49,7 +49,9 @@ export class SkillsComponent implements OnInit {
     const dialogRef = this.dialog.open(SkillsAddComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Add result: ${JSON.stringify(result)}`);
+      if (result) {
+        this.sheet.addSkill(result);
+      }
     });
   }
 }
