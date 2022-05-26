@@ -30,6 +30,9 @@ import { SkillsDeleteComponent } from "./character/skills/delete/delete.componen
 import { SkillsAddEditComponent } from "./character/skills/add-edit/add-edit.component";
 
 import { AbilitiesComponent } from "./character/abilities/abilities.component";
+import { AbilitiesDeleteComponent } from "./character/abilities/delete/delete.component";
+import { AbilitiesAddEditComponent } from "./character/abilities/add-edit/add-edit.component";
+
 import { CyphersComponent } from "./character/cyphers/cyphers.component";
 import { EquipmentComponent } from "./character/equipment/equipment.component";
 import { NotesComponent } from "./character/notes/notes.component";
@@ -42,6 +45,8 @@ import { NotesComponent } from "./character/notes/notes.component";
     SkillsDeleteComponent,
     SkillsAddEditComponent,
     AbilitiesComponent,
+    AbilitiesDeleteComponent,
+    AbilitiesAddEditComponent,
     CyphersComponent,
     EquipmentComponent,
     NotesComponent,

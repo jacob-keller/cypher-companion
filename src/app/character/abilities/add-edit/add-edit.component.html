@@ -1,0 +1,118 @@
+<!-- @format -->
+
+<h2
+  mat-dialog-title
+  *ngIf="!data.ability"
+>
+  Add a new ability
+</h2>
+<h2
+  mat-dialog-title
+  *ngIf="data.ability"
+>
+  Edit <em>{{ data.ability.name }}</em>
+</h2>
+<mat-dialog-content>
+  <div class="container-fluid">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Ability Name</mat-label>
+        <input
+          matInput
+          [formControl]="abilityNameRequired"
+          required
+          placeholder="Name"
+          [(ngModel)]="name"
+        />
+        <mat-error *ngIf="abilityNameRequired.invalid">{{ getNameErrorMessage() }}</mat-error>
+        <mat-hint>The name of the ability</mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>Ability Pool</mat-label>
+          <mat-select
+            [(value)]="pool"
+            aria-label="Ability Pool"
+          >
+            <mat-select-trigger> {{ pool }} </mat-select-trigger>
+            <mat-option
+              [value]="allAbilityPools.None"
+              aria-label="None"
+            >
+              None
+            </mat-option>
+            <mat-option
+              [value]="allAbilityPools.Might"
+              aria-label="Might"
+            >
+              Might
+            </mat-option>
+            <mat-option
+              [value]="allAbilityPools.Speed"
+              aria-label="Speed"
+            >
+              Speed
+            </mat-option>
+            <mat-option
+              [value]="allAbilityPools.Intellect"
+              aria-label="Intellect"
+            >
+              Intellect
+            </mat-option>
+          </mat-select>
+          <mat-hint>The stat pool used by this ability</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <div class="cost">
+          <mat-form-field
+            class="cost"
+            appearance="outline"
+            *ngIf="pool !== allAbilityPools.None"
+          >
+            <mat-label>Cost</mat-label>
+            <input
+              matInput
+              type="number"
+              min="0"
+              placeholder="Cost"
+              [(ngModel)]="cost"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Ability Description</mat-label>
+        <textarea
+          matInput
+          cdkTextareaAutosize
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="2"
+          placeholder="Short description"
+          [(ngModel)]="description"
+        ></textarea>
+        <mat-hint>A description of the ability</mat-hint>
+      </mat-form-field>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button
+    mat-button
+    mat-dialog-close
+    color="accent"
+  >
+    Cancel
+  </button>
+  <button
+    mat-button
+    (click)="saveAndClose()"
+    color="primary"
+  >
+    Save
+  </button>
+</mat-dialog-actions>

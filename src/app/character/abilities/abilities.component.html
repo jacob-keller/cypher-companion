@@ -1,3 +1,61 @@
 <!-- @format -->
 
-<p>abilities works!</p>
+<div class="container overflow-hidden">
+  <div class="row">
+    <div class="col g-2">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="addNewAbility()"
+      >
+        Add Ability
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col g-3">
+      <mat-accordion
+        multi
+        hideToggle
+        displayMode="flat"
+        cdkDropList
+        (cdkDropListDropped)="drop($event)"
+      >
+        <mat-expansion-panel
+          *ngFor="let ability of abilities; index as i"
+          cdkDrag
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> {{ ability.name }} </mat-panel-title>
+            <mat-panel-description *ngIf="ability.pool !== allAbilityPools.None">
+              ( {{ ability.cost }} {{ ability.pool }} )
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="container-fluid d-flex flex-grow g-0 m-0 p-0">
+            <div class="p-3">{{ ability.description }}</div>
+            <div class="p-3 ms-auto">
+              <button
+                mat-icon-button
+                color="primary"
+                (click)="editAbility(i)"
+                aria-label="Edit"
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+            </div>
+            <div class="p-3">
+              <button
+                mat-icon-button
+                color="warn"
+                aria-label="Delete"
+                (click)="delete(i)"
+              >
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>
