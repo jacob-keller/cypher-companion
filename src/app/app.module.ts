@@ -24,25 +24,27 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SummaryComponent } from "./character/summary/summary.component";
+
 import { SkillsComponent } from "./character/skills/skills.component";
+import { SkillsDeleteComponent } from "./character/skills/delete/delete.component";
+import { SkillsAddEditComponent } from "./character/skills/add-edit/add-edit.component";
+
 import { AbilitiesComponent } from "./character/abilities/abilities.component";
 import { CyphersComponent } from "./character/cyphers/cyphers.component";
 import { EquipmentComponent } from "./character/equipment/equipment.component";
 import { NotesComponent } from "./character/notes/notes.component";
-import { SkillsDeleteComponent } from "./character/skills/delete/delete.component";
-import { SkillsAddEditComponent } from "./character/skills/add-edit/add-edit.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     SummaryComponent,
     SkillsComponent,
+    SkillsDeleteComponent,
+    SkillsAddEditComponent,
     AbilitiesComponent,
     CyphersComponent,
     EquipmentComponent,
     NotesComponent,
-    SkillsDeleteComponent,
-    SkillsAddEditComponent,
   ],
   imports: [
     BrowserModule,

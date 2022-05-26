@@ -10,7 +10,7 @@
   mat-dialog-title
   *ngIf="data.skill"
 >
-  Edit <em>{{data.skill.name}}</em>
+  Edit <em>{{ data.skill.name }}</em>
 </h2>
 <mat-dialog-content>
   <div class="container-fluid">
@@ -26,20 +26,6 @@
         />
         <mat-error *ngIf="skillNameRequired.invalid">{{ getNameErrorMessage() }}</mat-error>
         <mat-hint>The name of the skill</mat-hint>
-      </mat-form-field>
-    </div>
-    <div class="row">
-      <mat-form-field appearance="outline">
-        <mat-label>Skill Description</mat-label>
-        <textarea
-          matInput
-          cdkTextareaAutosize
-          #autosize="cdkTextareaAutosize"
-          cdkAutosizeMinRows="2"
-          placeholder="Short description"
-          [(ngModel)]="description"
-        ></textarea>
-        <mat-hint>A short description of the skill</mat-hint>
       </mat-form-field>
     </div>
     <div class="row">
@@ -85,6 +71,20 @@
           </mat-option>
         </mat-select>
         <mat-hint>Level of training in the skill</mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Skill Description</mat-label>
+        <textarea
+          matInput
+          cdkTextareaAutosize
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="2"
+          placeholder="Short description"
+          [(ngModel)]="description"
+        ></textarea>
+        <mat-hint>A short description of the skill</mat-hint>
       </mat-form-field>
     </div>
   </div>

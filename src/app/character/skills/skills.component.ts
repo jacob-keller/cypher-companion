@@ -17,7 +17,7 @@ import { SkillsAddEditComponent } from "./add-edit/add-edit.component";
 export class SkillsComponent implements OnInit {
   allSkillTypes = SkillType;
 
-  skills: Readonly<Skill>[] = [];
+  skills: Readonly<Skill[]> = [];
 
   constructor(private sheet: CharacterSheetService, public dialog: MatDialog) {}
 
