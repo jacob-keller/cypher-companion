@@ -1,0 +1,13 @@
+/** @format */
+
+@use "sass:map";
+@use "@angular/material" as mat;
+
+@mixin theme-color-classes($theme) {
+  $config: mat.get-color-config($theme);
+  $warn: map.get($config, warn);
+
+  .warnColorLightBG {
+    background-color: mat.get-color-from-palette($warn, lighter) !important;
+  }
+}

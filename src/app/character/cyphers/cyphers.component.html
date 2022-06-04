@@ -1,3 +1,62 @@
 <!-- @format -->
 
-<p>cyphers works!</p>
+<div class="container overflow-hidden">
+  <div class="row">
+    <div class="col-auto g-2">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="addNewCypher()"
+      >
+        Add Cypher
+      </button>
+    </div>
+    <div class="col-auto g-2">
+      <h2>Cypher Limit: {{ cypherLimit() }}</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col g-3">
+      <mat-accordion
+        multi
+        hideToggle
+        displayMode="flat"
+        cdkDropList
+        (cdkDropListDropped)="drop($event)"
+      >
+        <mat-expansion-panel
+          *ngFor="let cypher of cyphers; index as i"
+          [ngClass]="{'warnColorLightBG': i >= cypherLimit()}"
+          cdkDrag
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> <em>Lv{{ cypher.level }}</em> &nbsp; {{ cypher.name }} </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="container-fluid d-flex flex-grow g-0 m-0 p-0">
+            <div class="p-3">{{ cypher.description }}</div>
+            <div class="p-3 ms-auto">
+              <button
+                mat-icon-button
+                color="primary"
+                (click)="editCypher(i)"
+                aria-label="Edit"
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+            </div>
+            <div class="p-3">
+              <button
+                mat-icon-button
+                color="warn"
+                aria-label="Delete"
+                (click)="delete(i)"
+              >
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

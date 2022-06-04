@@ -5,6 +5,8 @@ import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Observable, of } from "rxjs";
 import { SkillType, Skill } from "./skills/interface";
 import { AbilityPool, Ability } from "./abilities/interface";
+import { Cypher } from "./cyphers/interface";
+import { Summary } from "./summary/interface";
 
 @Injectable({
   providedIn: "root",
@@ -60,5 +62,40 @@ export class CharacterSheetService {
 
   replaceAbility(i: number, newAbility: Ability): void {
     this.abilities[i] = newAbility;
+  }
+
+  /*
+   * Cyphers
+   */
+  private cyphers: Cypher[] = [];
+
+  getCyphers(): Observable<Readonly<Cypher[]>> {
+    return of(this.cyphers);
+  }
+
+  moveCypher(event: CdkDragDrop<Cypher[]>): void {
+    moveItemInArray(this.cyphers, event.previousIndex, event.currentIndex);
+  }
+
+  deleteCypher(i: number): void {
+    this.cyphers.splice(i, 1);
+  }
+
+  addCypher(cypher: Cypher): void {
+    this.cyphers.push(cypher);
+  }
+
+  replaceCypher(i: number, newCypher: Cypher): void {
+    this.cyphers[i] = newCypher;
+  }
+
+  /*
+   * Summary
+   */
+
+  private summary: Summary = new Summary(2);
+
+  getCypherLimit(): number {
+    return this.summary.cypherLimit;
   }
 }

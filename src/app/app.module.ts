@@ -23,6 +23,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
 import { SummaryComponent } from "./character/summary/summary.component";
 
 import { SkillsComponent } from "./character/skills/skills.component";
@@ -34,6 +35,9 @@ import { AbilitiesDeleteComponent } from "./character/abilities/delete/delete.co
 import { AbilitiesAddEditComponent } from "./character/abilities/add-edit/add-edit.component";
 
 import { CyphersComponent } from "./character/cyphers/cyphers.component";
+import { CyphersDeleteComponent } from "./character/cyphers/delete/delete.component";
+import { CyphersAddEditComponent } from "./character/cyphers/add-edit/add-edit.component";
+
 import { EquipmentComponent } from "./character/equipment/equipment.component";
 import { NotesComponent } from "./character/notes/notes.component";
 
@@ -48,6 +52,8 @@ import { NotesComponent } from "./character/notes/notes.component";
     AbilitiesDeleteComponent,
     AbilitiesAddEditComponent,
     CyphersComponent,
+    CyphersDeleteComponent,
+    CyphersAddEditComponent,
     EquipmentComponent,
     NotesComponent,
   ],
