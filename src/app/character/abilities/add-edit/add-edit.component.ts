@@ -22,13 +22,14 @@ export class AbilitiesAddEditComponent implements OnInit {
       /* The ability data is read only. This protects against directly
        * modifying the contents outside of the sheet service.
        *
-       * Instead, we copy the name, description, and pool out to allow our
-       * components to edit. On dialog close, the ability data will be
+       * Instead, we copy the name, description, pool, and cost out to allow
+       * our components to edit. On dialog close, the ability data will be
        * returned as a new ability which will overwrite the existing data.
        */
       this.name = data.ability.name;
       this.description = data.ability.description;
       this.pool = data.ability.pool;
+      this.cost = data.ability.cost;
     }
   }
 
