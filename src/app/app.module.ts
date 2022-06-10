@@ -39,6 +39,9 @@ import { CyphersDeleteComponent } from "./character/cyphers/delete/delete.compon
 import { CyphersAddEditComponent } from "./character/cyphers/add-edit/add-edit.component";
 
 import { EquipmentComponent } from "./character/equipment/equipment.component";
+import { EquipmentDeleteComponent } from "./character/equipment/delete/delete.component";
+import { EquipmentAddEditComponent } from "./character/equipment/add-edit/add-edit.component";
+
 import { NotesComponent } from "./character/notes/notes.component";
 
 @NgModule({
@@ -55,6 +58,8 @@ import { NotesComponent } from "./character/notes/notes.component";
     CyphersDeleteComponent,
     CyphersAddEditComponent,
     EquipmentComponent,
+    EquipmentDeleteComponent,
+    EquipmentAddEditComponent,
     NotesComponent,
   ],
   imports: [

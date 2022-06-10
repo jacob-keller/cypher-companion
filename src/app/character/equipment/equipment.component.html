@@ -1,3 +1,59 @@
 <!-- @format -->
 
-<p>equipment works!</p>
+<div class="container overflow-hidden">
+  <div class="row">
+    <div class="col-auto g-2">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="addNewEquipment()"
+      >
+        Add Equipment
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col g-3">
+      <mat-accordion
+        multi
+        hideToggle
+        displayMode="flat"
+        cdkDropList
+        (cdkDropListDropped)="drop($event)"
+      >
+        <mat-expansion-panel
+          *ngFor="let item of equipment; index as i"
+          cdkDrag
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> <em>Lv{{ item.level }}</em> &nbsp; {{ item.name }} </mat-panel-title>
+            <mat-panel-description *ngIf="item.amount > 1"> ( x{{ item.amount }} ) </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="container-fluid d-flex flex-grow g-0 m-0 p-0">
+            <div class="p-3">{{ item.description }}</div>
+            <div class="p-3 ms-auto">
+              <button
+                mat-icon-button
+                color="primary"
+                (click)="editEquipment(i)"
+                aria-label="Edit"
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+            </div>
+            <div class="p-3">
+              <button
+                mat-icon-button
+                color="warn"
+                aria-label="Delete"
+                (click)="delete(i)"
+              >
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+<!-- @format -->
+
+<h2
+  mat-dialog-title
+  *ngIf="!data.equipment"
+>
+  Add a new piece of equipment
+</h2>
+<h2
+  mat-dialog-title
+  *ngIf="data.equipment"
+>
+  Edit <em>{{ data.equipment.name }}</em>
+</h2>
+<mat-dialog-content>
+  <div class="container-fluid">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Equipment Name</mat-label>
+        <input
+          matInput
+          [formControl]="equipmentNameRequired"
+          required
+          placeholder="Name"
+          [(ngModel)]="name"
+        />
+        <mat-error *ngIf="equipmentNameRequired.invalid">{{ getNameErrorMessage() }}</mat-error>
+        <mat-hint>The name of the equipment</mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field
+        class="level"
+        appearance="outline"
+      >
+        <mat-label>Level</mat-label>
+        <input
+          matInput
+          type="number"
+          min="1"
+          max="10"
+          [formControl]="equipmentLevelRange"
+          placeholder="Level"
+          [(ngModel)]="level"
+        />
+        <mat-hint>The equipment level</mat-hint>
+        <mat-error *ngIf="equipmentLevelRange.invalid">{{ getLevelErrorMessage() }}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field
+        class="amount"
+        appearance="outline"
+      >
+        <mat-label>Amount</mat-label>
+        <input
+          matInput
+          type="number"
+          min="1"
+          [formControl]="equipmentAmountRange"
+          placeholder="Amount"
+          [(ngModel)]="amount"
+        />
+        <mat-hint>How many you have</mat-hint>
+        <mat-error *ngIf="equipmentAmountRange.invalid">{{ getAmountErrorMessage() }}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Equipment Description</mat-label>
+        <textarea
+          matInput
+          cdkTextareaAutosize
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="2"
+          placeholder="Short description"
+          [(ngModel)]="description"
+        ></textarea>
+        <mat-hint>A description of the item</mat-hint>
+      </mat-form-field>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button
+    mat-button
+    mat-dialog-close
+    color="accent"
+  >
+    Cancel
+  </button>
+  <button
+    mat-button
+    (click)="saveAndClose()"
+    color="primary"
+  >
+    Save
+  </button>
+</mat-dialog-actions>

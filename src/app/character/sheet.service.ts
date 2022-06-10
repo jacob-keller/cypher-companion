@@ -6,6 +6,7 @@ import { Observable, of } from "rxjs";
 import { SkillType, Skill } from "./skills/interface";
 import { AbilityPool, Ability } from "./abilities/interface";
 import { Cypher } from "./cyphers/interface";
+import { Equipment } from "./equipment/interface";
 import { Summary } from "./summary/interface";
 
 @Injectable({
@@ -87,6 +88,31 @@ export class CharacterSheetService {
 
   replaceCypher(i: number, newCypher: Cypher): void {
     this.cyphers[i] = newCypher;
+  }
+
+  /*
+   * Equipment
+   */
+  private equipment: Equipment[] = [];
+
+  getEquipment(): Observable<Readonly<Equipment[]>> {
+    return of(this.equipment);
+  }
+
+  moveEquipment(event: CdkDragDrop<Equipment[]>): void {
+    moveItemInArray(this.equipment, event.previousIndex, event.currentIndex);
+  }
+
+  deleteEquipment(i: number): void {
+    this.equipment.splice(i, 1);
+  }
+
+  addEquipment(equipment: Equipment): void {
+    this.equipment.push(equipment);
+  }
+
+  replaceEquipment(i: number, newEquipment: Equipment): void {
+    this.equipment[i] = newEquipment;
   }
 
   /*
