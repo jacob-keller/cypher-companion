@@ -19,6 +19,7 @@ import { MatInputModule } from "@angular/material/input";
 import { TextFieldModule } from "@angular/cdk/text-field";
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { MatSelectModule } from "@angular/material/select";
+import { MatChipsModule } from "@angular/material/chips";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -43,6 +44,8 @@ import { EquipmentDeleteComponent } from "./character/equipment/delete/delete.co
 import { EquipmentAddEditComponent } from "./character/equipment/add-edit/add-edit.component";
 
 import { NotesComponent } from "./character/notes/notes.component";
+import { NotesDeleteComponent } from "./character/notes/delete/delete.component";
+import { NotesAddEditComponent } from "./character/notes/add-edit/add-edit.component";
 
 @NgModule({
   declarations: [
@@ -61,6 +64,8 @@ import { NotesComponent } from "./character/notes/notes.component";
     EquipmentDeleteComponent,
     EquipmentAddEditComponent,
     NotesComponent,
+    NotesDeleteComponent,
+    NotesAddEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,6 +88,7 @@ import { NotesComponent } from "./character/notes/notes.component";
     TextFieldModule,
     MatButtonToggleModule,
     MatSelectModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

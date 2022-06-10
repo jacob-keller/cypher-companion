@@ -1,0 +1,87 @@
+<!-- @format -->
+
+<h2
+  mat-dialog-title
+  *ngIf="!data.note"
+>
+  Add a new note
+</h2>
+<h2
+  mat-dialog-title
+  *ngIf="data.note"
+>
+  Edit <em>{{ data.note.title }}</em>
+</h2>
+<mat-dialog-content>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>Note Title</mat-label>
+          <input
+            matInput
+            [formControl]="noteTitleRequired"
+            required
+            placeholder="Title"
+            [(ngModel)]="title"
+          />
+          <mat-error *ngIf="noteTitleRequired.invalid">{{ getTitleErrorMessage() }}</mat-error>
+          <mat-hint>The title of the note</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>Created</mat-label>
+          <input
+            matInput
+            readonly
+            value="{{ created | date:'medium' }}"
+          />
+        </mat-form-field>
+      </div>
+      <div
+        class="col"
+        *ngIf="created != edited"
+      >
+        <mat-form-field appearance="outline">
+          <mat-label>Edited</mat-label>
+          <input
+            matInput
+            readonly
+            value="{{ edited | date:'medium' }}"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Note Contents</mat-label>
+        <textarea
+          matInput
+          cdkTextareaAutosize
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="4"
+          placeholder="Note contents"
+          [(ngModel)]="contents"
+        ></textarea>
+        <mat-hint>The note</mat-hint>
+      </mat-form-field>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button
+    mat-button
+    mat-dialog-close
+    color="accent"
+  >
+    Cancel
+  </button>
+  <button
+    mat-button
+    (click)="saveAndClose()"
+    color="primary"
+  >
+    Save
+  </button>
+</mat-dialog-actions>

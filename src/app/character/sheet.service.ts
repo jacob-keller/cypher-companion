@@ -7,6 +7,7 @@ import { SkillType, Skill } from "./skills/interface";
 import { AbilityPool, Ability } from "./abilities/interface";
 import { Cypher } from "./cyphers/interface";
 import { Equipment } from "./equipment/interface";
+import { Note } from "./notes/interface";
 import { Summary } from "./summary/interface";
 
 @Injectable({
@@ -113,6 +114,31 @@ export class CharacterSheetService {
 
   replaceEquipment(i: number, newEquipment: Equipment): void {
     this.equipment[i] = newEquipment;
+  }
+
+  /*
+   * Notes
+   */
+  private notes: Note[] = [];
+
+  getNotes(): Observable<Readonly<Note[]>> {
+    return of(this.notes);
+  }
+
+  moveNote(event: CdkDragDrop<Note[]>): void {
+    moveItemInArray(this.notes, event.previousIndex, event.currentIndex);
+  }
+
+  deleteNote(i: number): void {
+    this.notes.splice(i, 1);
+  }
+
+  addNote(note: Note): void {
+    this.notes.push(note);
+  }
+
+  replaceNote(i: number, newNote: Note): void {
+    this.notes[i] = newNote;
   }
 
   /*
