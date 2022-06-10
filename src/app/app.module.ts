@@ -19,7 +19,6 @@ import { MatInputModule } from "@angular/material/input";
 import { TextFieldModule } from "@angular/cdk/text-field";
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { MatSelectModule } from "@angular/material/select";
-import { MatChipsModule } from "@angular/material/chips";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -88,7 +87,6 @@ import { NotesAddEditComponent } from "./character/notes/add-edit/add-edit.compo
     TextFieldModule,
     MatButtonToggleModule,
     MatSelectModule,
-    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
