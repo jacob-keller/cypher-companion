@@ -145,7 +145,7 @@ export class CharacterSheetService {
    * Summary
    */
 
-  private summary: Summary = new Summary(2);
+  private summary: Summary = new Summary();
 
   getCypherLimit(): number {
     return this.summary.cypherLimit;
