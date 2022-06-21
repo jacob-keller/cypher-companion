@@ -45,6 +45,7 @@ import { EquipmentAddEditComponent } from "./character/equipment/add-edit/add-ed
 import { NotesComponent } from "./character/notes/notes.component";
 import { NotesDeleteComponent } from "./character/notes/delete/delete.component";
 import { NotesAddEditComponent } from "./character/notes/add-edit/add-edit.component";
+import { AttributePoolComponent } from "./character/summary/attribute-pool/attribute-pool.component";
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { NotesAddEditComponent } from "./character/notes/add-edit/add-edit.compo
     NotesComponent,
     NotesDeleteComponent,
     NotesAddEditComponent,
+    AttributePoolComponent,
   ],
   imports: [
     BrowserModule,

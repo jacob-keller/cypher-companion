@@ -9,6 +9,7 @@ import { Cypher } from "./cyphers/interface";
 import { Equipment } from "./equipment/interface";
 import { Note } from "./notes/interface";
 import { Summary } from "./summary/interface";
+import { AttributePool } from "./summary/attribute-pool/interface";
 
 @Injectable({
   providedIn: "root",
@@ -146,6 +147,18 @@ export class CharacterSheetService {
    */
 
   private summary: Summary = new Summary();
+
+  getMightPool(): AttributePool {
+    return this.summary.might;
+  }
+
+  getSpeedPool(): AttributePool {
+    return this.summary.speed;
+  }
+
+  getIntellectPool(): AttributePool {
+    return this.summary.intellect;
+  }
 
   getCypherLimit(): number {
     return this.summary.cypherLimit;

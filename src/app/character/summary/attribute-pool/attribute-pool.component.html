@@ -1,0 +1,30 @@
+<!-- @format -->
+
+<div class="d-inline-flex flex-column g-1 p-1 m-1 border">
+  <h4 class="m-1"><strong>{{ pool.name }}</strong></h4>
+  <div class="hstack">
+    <h1 class="m-1 flex-grow-1 text-end">{{ pool.current }}</h1>
+    <div class="btn-group-vertical">
+      <button
+        mat-icon-button
+        color="primary"
+        aria-label="increment"
+        class="btn"
+      >
+        <mat-icon>arrow_drop_up</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        color="primary"
+        aria-label="decrement"
+        class="btn"
+      >
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="vstack">
+    <h4 class="m-1">Max: {{ pool.maximum }}</h4>
+    <h4 class="m-1">Edge: {{ pool.edge }}</h4>
+  </div>
+</div>

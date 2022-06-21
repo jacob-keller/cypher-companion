@@ -1,5 +1,7 @@
 /** @format */
 
+import { AttributePool } from "./attribute-pool/interface";
+
 export class Summary {
   public name: string = "";
 
@@ -12,17 +14,9 @@ export class Summary {
   public effort: number = 1;
   public xp: number = 0;
 
-  public currentMight: number = 0;
-  public maxMight: number = 0;
-  public mightEdge: number = 0;
-
-  public currentSpeed: number = 0;
-  public maxSpeed: number = 0;
-  public speedEdge: number = 0;
-
-  public currentIntellect: number = 0;
-  public maxIntellect: number = 0;
-  public intellectEdge: number = 0;
+  public might: AttributePool = new AttributePool("Might");
+  public speed: AttributePool = new AttributePool("Speed");
+  public intellect: AttributePool = new AttributePool("Intellect");
 
   public recoveryBonus: number = 0;
   public usedActionRest: boolean = false;
