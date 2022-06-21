@@ -1,6 +1,7 @@
 /** @format */
 
 import { Component, OnInit, Input } from "@angular/core";
+import { CharacterSheetService } from "../../sheet.service";
 import { AttributePool } from "./interface";
 
 @Component({
@@ -11,7 +12,15 @@ import { AttributePool } from "./interface";
 export class AttributePoolComponent implements OnInit {
   @Input() pool!: AttributePool;
 
-  constructor() {}
+  constructor(private sheet: CharacterSheetService) {}
 
   ngOnInit(): void {}
+
+  increment(): void {
+    this.pool.increment();
+  }
+
+  decrement(): void {
+    this.pool.decrement();
+  }
 }
