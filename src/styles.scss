@@ -3,7 +3,6 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use "@angular/material" as mat;
-@use "styles/activated-text" as txt;
 @use "styles/colors" as theme-colors;
 // Plus imports for other components in your app.
 
@@ -37,8 +36,6 @@ $cypher-companion-theme: mat.define-light-theme(
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($cypher-companion-theme);
-
-@include txt.accent-text($cypher-companion-theme);
 
 @include theme-colors.theme-color-classes($cypher-companion-theme);
 

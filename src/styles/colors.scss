@@ -6,8 +6,18 @@
 @mixin theme-color-classes($theme) {
   $config: mat.get-color-config($theme);
   $warn: map.get($config, warn);
+  $accent: map.get($config, accent);
+  $primary: map.get($config, primary);
 
   .warnColorLightBG {
     background-color: mat.get-color-from-palette($warn, lighter) !important;
+  }
+
+  .accent-text {
+    color: mat.get-color-from-palette($accent, text) !important;
+  }
+
+  .primary-text {
+    color: mat.get-color-from-palette($primary, text) !important;
   }
 }
