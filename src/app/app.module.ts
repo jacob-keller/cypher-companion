@@ -19,6 +19,7 @@ import { MatInputModule } from "@angular/material/input";
 import { TextFieldModule } from "@angular/cdk/text-field";
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { MatSelectModule } from "@angular/material/select";
+import { MatCheckboxModule } from "@angular/material/checkbox";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -46,6 +47,7 @@ import { NotesComponent } from "./character/notes/notes.component";
 import { NotesDeleteComponent } from "./character/notes/delete/delete.component";
 import { NotesAddEditComponent } from "./character/notes/add-edit/add-edit.component";
 import { AttributePoolComponent } from "./character/summary/attribute-pool/attribute-pool.component";
+import { RecoveryRollsComponent } from "./character/summary/recovery-rolls/recovery-rolls.component";
 
 @NgModule({
   declarations: [
@@ -67,6 +69,7 @@ import { AttributePoolComponent } from "./character/summary/attribute-pool/attri
     NotesDeleteComponent,
     NotesAddEditComponent,
     AttributePoolComponent,
+    RecoveryRollsComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,6 +92,7 @@ import { AttributePoolComponent } from "./character/summary/attribute-pool/attri
     TextFieldModule,
     MatButtonToggleModule,
     MatSelectModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

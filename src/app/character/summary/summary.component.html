@@ -1,7 +1,7 @@
 <!-- @format -->
 
 <div
-  class="summary-box g-0"
+  class="summary-box container d-flex flex-column g-0"
   *ngIf="summary"
 >
   <div class="vstack gap-0 text-center">
@@ -16,16 +16,17 @@
   </div>
   <div class="hstack gap-2">
     <attribute-pool
-      class="m-auto"
+      class="ms-auto"
       [pool]="summary.might"
     ></attribute-pool>
+    <attribute-pool [pool]="summary.speed"></attribute-pool>
     <attribute-pool
-      class="m-auto"
-      [pool]="summary.speed"
-    ></attribute-pool>
-    <attribute-pool
-      class="m-auto"
+      class="me-auto"
       [pool]="summary.intellect"
     ></attribute-pool>
   </div>
+  <recovery-rolls
+    class="mx-auto mt-2"
+    [summary]="summary"
+  ></recovery-rolls>
 </div>

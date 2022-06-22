@@ -1,6 +1,7 @@
 /** @format */
 
 import { AttributePool } from "./attribute-pool/interface";
+import { RecoveryRolls } from "./recovery-rolls/interface";
 
 export class Summary {
   public name: string = "";
@@ -18,11 +19,7 @@ export class Summary {
   public speed: AttributePool = new AttributePool("Speed");
   public intellect: AttributePool = new AttributePool("Intellect");
 
-  public recoveryBonus: number = 0;
-  public usedActionRest: boolean = false;
-  public usedShortRest: boolean = false;
-  public usedHourRest: boolean = false;
-  public usedSleepRest: boolean = false;
+  public recovery: RecoveryRolls = new RecoveryRolls();
 
   public damageImpaired: boolean = false;
   public damageDebilitated: boolean = false;
