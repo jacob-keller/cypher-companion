@@ -2,8 +2,17 @@
 
 <div class="summary-box row g-0">
   <div class="hstack gap-2">
-    <attribute-pool [pool]="might"></attribute-pool>
-    <attribute-pool [pool]="speed"></attribute-pool>
-    <attribute-pool [pool]="intellect"></attribute-pool>
+    <attribute-pool
+      class="m-auto"
+      [pool]="summary.might"
+    ></attribute-pool>
+    <attribute-pool
+      class="m-auto"
+      [pool]="summary.speed"
+    ></attribute-pool>
+    <attribute-pool
+      class="m-auto"
+      [pool]="summary.intellect"
+    ></attribute-pool>
   </div>
 </div>
