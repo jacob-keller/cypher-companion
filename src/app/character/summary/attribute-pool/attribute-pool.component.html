@@ -1,6 +1,9 @@
 <!-- @format -->
 
-<div class="d-inline-flex flex-column g-1 p-1 m-1 border">
+<div
+  class="d-inline-flex flex-column g-1 p-1 m-1 border"
+  *ngIf="pool"
+>
   <h4 class="m-1"><strong>{{ pool.name }}</strong></h4>
   <div class="hstack">
     <h1 class="m-1 flex-grow-1 text-end">{{ pool.current }}</h1>

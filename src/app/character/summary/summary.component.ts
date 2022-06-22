@@ -2,7 +2,7 @@
 
 import { Component, OnInit } from "@angular/core";
 import { CharacterSheetService } from "../sheet.service";
-import { AttributePool } from "./attribute-pool/interface";
+import { Summary } from "./interface";
 
 @Component({
   selector: "app-character-summary",
@@ -10,15 +10,15 @@ import { AttributePool } from "./attribute-pool/interface";
   styleUrls: ["./summary.component.scss"],
 })
 export class SummaryComponent implements OnInit {
-  might!: AttributePool;
-  speed!: AttributePool;
-  intellect!: AttributePool;
+  summary?: Summary;
 
   constructor(private sheet: CharacterSheetService) {}
 
+  getSummary(): void {
+    this.sheet.getSummaryData().subscribe((summary) => (this.summary = summary));
+  }
+
   ngOnInit(): void {
-    this.might = this.sheet.getMightPool();
-    this.speed = this.sheet.getSpeedPool();
-    this.intellect = this.sheet.getIntellectPool();
+    this.getSummary();
   }
 }

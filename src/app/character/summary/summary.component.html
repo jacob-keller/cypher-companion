@@ -1,6 +1,19 @@
 <!-- @format -->
 
-<div class="summary-box row g-0">
+<div
+  class="summary-box g-0"
+  *ngIf="summary"
+>
+  <div class="vstack gap-0 text-center">
+    <h1><u class="primary-text">{{ summary.name || "<< Character Name >>"}}</u></h1>
+    <h4>
+      is a
+      <strong>{{ summary.descriptor || "<< descriptor >>" }}</strong> &nbsp;
+      <strong>{{ summary.type || "<< type >>" }}</strong>
+    </h4>
+    <h4>who <strong>{{ summary.focus || "<< focus >>" }}</strong></h4>
+    <h4 *ngIf="summary.flavor"><em>{{ summary.flavor }}</em></h4>
+  </div>
   <div class="hstack gap-2">
     <attribute-pool
       class="m-auto"

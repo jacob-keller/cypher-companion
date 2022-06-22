@@ -10,17 +10,17 @@ import { AttributePool } from "./interface";
   styleUrls: ["./attribute-pool.component.scss"],
 })
 export class AttributePoolComponent implements OnInit {
-  @Input() pool!: AttributePool;
+  @Input() pool?: AttributePool;
 
   constructor(private sheet: CharacterSheetService) {}
 
   ngOnInit(): void {}
 
   increment(): void {
-    this.pool.increment();
+    this.pool?.increment();
   }
 
   decrement(): void {
-    this.pool.decrement();
+    this.pool?.decrement();
   }
 }

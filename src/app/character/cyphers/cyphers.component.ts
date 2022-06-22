@@ -5,6 +5,7 @@ import { CdkDragDrop } from "@angular/cdk/drag-drop";
 import { MatDialog } from "@angular/material/dialog";
 
 import { Cypher } from "./interface";
+import { Summary } from "../summary/interface";
 import { CharacterSheetService } from "../sheet.service";
 import { CyphersDeleteComponent } from "./delete/delete.component";
 import { CyphersAddEditComponent } from "./add-edit/add-edit.component";
@@ -17,18 +18,25 @@ import { CyphersAddEditComponent } from "./add-edit/add-edit.component";
 export class CyphersComponent implements OnInit {
   cyphers: Readonly<Cypher[]> = [];
 
+  summary?: Readonly<Summary>;
+
   constructor(private sheet: CharacterSheetService, public dialog: MatDialog) {}
 
   getCyphers(): void {
     this.sheet.getCyphers().subscribe((cyphers) => (this.cyphers = cyphers));
   }
 
+  getSummary(): void {
+    this.sheet.getSummaryData().subscribe((summary) => (this.summary = summary));
+  }
+
   ngOnInit(): void {
+    this.getSummary();
     this.getCyphers();
   }
 
   cypherLimit(): number {
-    return this.sheet.getCypherLimit();
+    return this.summary?.cypherLimit || 0;
   }
 
   drop(event: CdkDragDrop<Readonly<Cypher>[]>): void {
