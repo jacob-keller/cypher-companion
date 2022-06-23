@@ -14,6 +14,7 @@
     <h4>who <strong>{{ summary.focus || "<< focus >>" }}</strong></h4>
     <h4 *ngIf="summary.flavor"><em>{{ summary.flavor }}</em></h4>
   </div>
+  <tier-info [summary]="summary"></tier-info>
   <div class="hstack gap-2">
     <attribute-pool
       class="ms-auto"

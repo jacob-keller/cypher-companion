@@ -1,0 +1,45 @@
+<!-- @format -->
+
+<div
+  class="hstack gap-2 align-items-stretch"
+  *ngIf="summary"
+>
+  <div class="d-inline-flex flex-column g-1 p-1 m-1 border ms-auto">
+    <h1 class="m-1 flex-grow-1 text-center">{{ summary.tier }}</h1>
+    <h4 class="m-1 text-center"><strong>Tier</strong></h4>
+  </div>
+  <div class="d-inline-flex flex-column g-1 p-1 m-1 border">
+    <h1 class="m-1 flex-grow-1 text-center">{{ summary.effort }}</h1>
+    <h4 class="m-1 text-center"><strong>Effort</strong></h4>
+  </div>
+  <div class="d-inline-flex flex-column g-1 p-1 m-1 border me-auto">
+    <div class="hstack">
+      <div class="vstack">
+        <h1 class="m-1 flex-grow-1 text-end">{{ summary.xp }}</h1>
+        <h4 class="m-1 text-center"><strong>XP</strong></h4>
+      </div>
+      <div class="vstack">
+        <div class="btn-group-vertical">
+          <button
+            mat-icon-button
+            color="primary"
+            aria-label="incrementXP"
+            class="btn"
+            (click)="incrementXP()"
+          >
+            <mat-icon>arrow_drop_up</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            color="primary"
+            aria-label="decrementXP"
+            class="btn"
+            (click)="decrementXP()"
+          >
+            <mat-icon>arrow_drop_down</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

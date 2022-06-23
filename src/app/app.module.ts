@@ -47,6 +47,7 @@ import { EquipmentAddEditComponent } from "./character/equipment/add-edit/add-ed
 import { NotesComponent } from "./character/notes/notes.component";
 import { NotesDeleteComponent } from "./character/notes/delete/delete.component";
 import { NotesAddEditComponent } from "./character/notes/add-edit/add-edit.component";
+import { TierInfoComponent } from "./character/summary/tier-info/tier-info.component";
 import { AttributePoolComponent } from "./character/summary/attribute-pool/attribute-pool.component";
 import { RecoveryRollsComponent } from "./character/summary/recovery-rolls/recovery-rolls.component";
 import { DamageTrackComponent } from "./character/summary/damage-track/damage-track.component";
@@ -72,6 +73,7 @@ import { InfoDebilitatedComponent } from "./character/summary/damage-track/info-
     NotesComponent,
     NotesDeleteComponent,
     NotesAddEditComponent,
+    TierInfoComponent,
     AttributePoolComponent,
     RecoveryRollsComponent,
     DamageTrackComponent,
