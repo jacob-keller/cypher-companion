@@ -2,6 +2,7 @@
 
 import { AttributePool } from "./attribute-pool/interface";
 import { RecoveryRolls } from "./recovery-rolls/interface";
+import { DamageTrack} from "./damage-track/interface";
 
 export class Summary {
   public name: string = "";
@@ -21,8 +22,7 @@ export class Summary {
 
   public recovery: RecoveryRolls = new RecoveryRolls();
 
-  public damageImpaired: boolean = false;
-  public damageDebilitated: boolean = false;
+  public damageTrack: DamageTrack = new DamageTrack();
 
   public currencyName: string = "Gold";
   public currencyAmount: number = 0;

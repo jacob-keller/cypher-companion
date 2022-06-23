@@ -20,6 +20,7 @@ import { TextFieldModule } from "@angular/cdk/text-field";
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { MatSelectModule } from "@angular/material/select";
 import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatRadioModule } from "@angular/material/radio";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -48,6 +49,9 @@ import { NotesDeleteComponent } from "./character/notes/delete/delete.component"
 import { NotesAddEditComponent } from "./character/notes/add-edit/add-edit.component";
 import { AttributePoolComponent } from "./character/summary/attribute-pool/attribute-pool.component";
 import { RecoveryRollsComponent } from "./character/summary/recovery-rolls/recovery-rolls.component";
+import { DamageTrackComponent } from "./character/summary/damage-track/damage-track.component";
+import { InfoImpairedComponent } from "./character/summary/damage-track/info-impaired/info-impaired.component";
+import { InfoDebilitatedComponent } from "./character/summary/damage-track/info-debilitated/info-debilitated.component";
 
 @NgModule({
   declarations: [
@@ -70,6 +74,9 @@ import { RecoveryRollsComponent } from "./character/summary/recovery-rolls/recov
     NotesAddEditComponent,
     AttributePoolComponent,
     RecoveryRollsComponent,
+    DamageTrackComponent,
+    InfoImpairedComponent,
+    InfoDebilitatedComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,6 +100,7 @@ import { RecoveryRollsComponent } from "./character/summary/recovery-rolls/recov
     MatButtonToggleModule,
     MatSelectModule,
     MatCheckboxModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

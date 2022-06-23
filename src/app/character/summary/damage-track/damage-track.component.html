@@ -1,0 +1,33 @@
+<!-- @format -->
+<div
+  class="d-inline-flex align-center flex-column g-1 p-1 m-1 border"
+  *ngIf="summary"
+>
+  <div class="vstack">
+    <h3 class="m-1">
+      <label id="damage-track-label"><strong>Damage Track</strong></label>
+    </h3>
+    <mat-radio-group
+      aria-labeledby="damage-track-label"
+      [(ngModel)]="summary.damageTrack.category"
+      (ngModelChange)="saveCharacterSheet()"
+    >
+      <mat-radio-button
+        class="m-1 g-1 p-1"
+        *ngFor="let enum of allDamageCategories | keyvalue"
+        [value]="enum.key"
+      >
+        {{ enum.value }}
+      </mat-radio-button>
+    </mat-radio-group>
+    <div
+      class="text-wrap"
+      style="max-width: fit-content"
+    >
+      <ul>
+        <info-impaired *ngIf="summary.damageTrack.category >= 1"></info-impaired>
+        <info-debilitated *ngIf="summary.damageTrack.category >= 2"></info-debilitated>
+      </ul>
+    </div>
+  </div>
+</div>
