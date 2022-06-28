@@ -6,6 +6,7 @@ import { MatDialog } from "@angular/material/dialog";
 
 import { Equipment } from "./interface";
 import { CharacterSheetService } from "../sheet.service";
+import { Summary } from "../summary/interface";
 import { EquipmentDeleteComponent } from "./delete/delete.component";
 import { EquipmentAddEditComponent } from "./add-edit/add-edit.component";
 
@@ -16,6 +17,7 @@ import { EquipmentAddEditComponent } from "./add-edit/add-edit.component";
 })
 export class EquipmentComponent implements OnInit {
   equipment: Readonly<Equipment[]> = [];
+  summary?: Summary;
 
   constructor(private sheet: CharacterSheetService, public dialog: MatDialog) {}
 
@@ -23,8 +25,13 @@ export class EquipmentComponent implements OnInit {
     this.sheet.getEquipment().subscribe((equipment) => (this.equipment = equipment));
   }
 
+  getSummary(): void {
+    this.sheet.getSummaryData().subscribe((summary) => (this.summary = summary));
+  }
+
   ngOnInit(): void {
     this.getEquipment();
+    this.getSummary();
   }
 
   drop(event: CdkDragDrop<Readonly<Equipment>[]>): void {
@@ -65,5 +72,13 @@ export class EquipmentComponent implements OnInit {
         this.sheet.replaceEquipment(i, result);
       }
     });
+  }
+
+  armorValue(): number {
+    return this.summary?.armorValue || 0;
+  }
+
+  currencyAmount(): string {
+    return this.summary?.currencyAmount || "";
   }
 }

@@ -24,8 +24,7 @@ export class Summary {
 
   public damageTrack: DamageTrack = new DamageTrack();
 
-  public currencyName: string = "Gold";
-  public currencyAmount: number = 0;
+  public currencyAmount: string = "0";
 
   public cypherLimit: number = 2;
 
