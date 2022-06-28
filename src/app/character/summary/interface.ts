@@ -2,7 +2,7 @@
 
 import { AttributePool } from "./attribute-pool/interface";
 import { RecoveryRolls } from "./recovery-rolls/interface";
-import { DamageTrack} from "./damage-track/interface";
+import { DamageTrack } from "./damage-track/interface";
 
 export class Summary {
   public name: string = "";

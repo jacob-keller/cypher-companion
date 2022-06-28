@@ -26,9 +26,7 @@
           cdkDrag
         >
           <mat-expansion-panel-header>
-            <mat-panel-title>
-              <em>Lv{{ item.level }}</em> &nbsp; {{ item.name }}
-            </mat-panel-title>
+            <mat-panel-title> <em>Lv{{ item.level }}</em> &nbsp; {{ item.name }} </mat-panel-title>
             <mat-panel-description *ngIf="item.amount > 1"> ( x{{ item.amount }} ) </mat-panel-description>
           </mat-expansion-panel-header>
           <div class="container-fluid d-flex flex-grow g-0 m-0 p-0">
