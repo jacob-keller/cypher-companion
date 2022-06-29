@@ -12,13 +12,10 @@
       </button>
     </div>
     <div class="col-auto g-2">
-      <h2>Armor: {{ armorValue() }}</h2>
+      <h2 (dblclick)="editArmor()">Armor: {{ armorValue() }}</h2>
     </div>
-    <div
-      *ngIf="summary"
-      class="col-auto g-2"
-    >
-      <h2>Money: {{ currencyAmount() }}</h2>
+    <div class="col-auto g-2">
+      <h2 (dblclick)="editMoney()">Money: {{ currencyAmount() }}</h2>
     </div>
   </div>
   <div class="row">

@@ -117,6 +117,14 @@ export class CharacterSheetService {
     this.equipment[i] = newEquipment;
   }
 
+  setArmorValue(armorValue: number) {
+    this.summary.armorValue = armorValue;
+  }
+
+  setCurrencyAmount(currencyAmount: string) {
+    this.summary.currencyAmount = currencyAmount;
+  }
+
   /*
    * Notes
    */

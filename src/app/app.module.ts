@@ -43,6 +43,8 @@ import { CyphersAddEditComponent } from "./character/cyphers/add-edit/add-edit.c
 import { EquipmentComponent } from "./character/equipment/equipment.component";
 import { EquipmentDeleteComponent } from "./character/equipment/delete/delete.component";
 import { EquipmentAddEditComponent } from "./character/equipment/add-edit/add-edit.component";
+import { EditArmorComponent } from "./character/equipment/edit-armor/edit-armor.component";
+import { EditMoneyComponent } from "./character/equipment/edit-money/edit-money.component";
 
 import { NotesComponent } from "./character/notes/notes.component";
 import { NotesDeleteComponent } from "./character/notes/delete/delete.component";
@@ -70,6 +72,8 @@ import { InfoDebilitatedComponent } from "./character/summary/damage-track/info-
     EquipmentComponent,
     EquipmentDeleteComponent,
     EquipmentAddEditComponent,
+    EditArmorComponent,
+    EditMoneyComponent,
     NotesComponent,
     NotesDeleteComponent,
     NotesAddEditComponent,

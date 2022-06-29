@@ -9,6 +9,8 @@ import { CharacterSheetService } from "../sheet.service";
 import { Summary } from "../summary/interface";
 import { EquipmentDeleteComponent } from "./delete/delete.component";
 import { EquipmentAddEditComponent } from "./add-edit/add-edit.component";
+import { EditArmorComponent } from "./edit-armor/edit-armor.component";
+import { EditMoneyComponent } from "./edit-money/edit-money.component";
 
 @Component({
   selector: "app-character-equipment",
@@ -80,5 +82,37 @@ export class EquipmentComponent implements OnInit {
 
   currencyAmount(): string {
     return this.summary?.currencyAmount || "";
+  }
+
+  editArmor(): void {
+    if (!this.summary) {
+      return;
+    }
+
+    const dialogRef = this.dialog.open(EditArmorComponent, {
+      data: { armorValue: this.summary.armorValue },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.sheet.setArmorValue(result);
+      }
+    });
+  }
+
+  editMoney(): void {
+    if (!this.summary) {
+      return;
+    }
+
+    const dialogRef = this.dialog.open(EditMoneyComponent, {
+      data: { currencyAmount: this.summary.currencyAmount },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.sheet.setCurrencyAmount(result);
+      }
+    });
   }
 }
