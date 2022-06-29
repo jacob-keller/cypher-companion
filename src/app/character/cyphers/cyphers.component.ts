@@ -9,6 +9,7 @@ import { Summary } from "../summary/interface";
 import { CharacterSheetService } from "../sheet.service";
 import { CyphersDeleteComponent } from "./delete/delete.component";
 import { CyphersAddEditComponent } from "./add-edit/add-edit.component";
+import { EditCypherLimitComponent } from "./edit-cypher-limit/edit-cypher-limit.component";
 
 @Component({
   selector: "app-character-cyphers",
@@ -37,6 +38,22 @@ export class CyphersComponent implements OnInit {
 
   cypherLimit(): number {
     return this.summary?.cypherLimit || 0;
+  }
+
+  editCypherLimit(): void {
+    if (!this.summary) {
+      return;
+    }
+
+    const dialogRef = this.dialog.open(EditCypherLimitComponent, {
+      data: { cypherLimit: this.summary.cypherLimit },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.sheet.setCypherLimit(result);
+      }
+    });
   }
 
   drop(event: CdkDragDrop<Readonly<Cypher>[]>): void {

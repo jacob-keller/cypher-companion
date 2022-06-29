@@ -12,7 +12,7 @@
       </button>
     </div>
     <div class="col-auto g-2">
-      <h2>Cypher Limit: {{ cypherLimit() }}</h2>
+      <h2 (dblclick)="editCypherLimit()">Cypher Limit: {{ cypherLimit() }}</h2>
     </div>
   </div>
   <div class="row">
@@ -30,9 +30,7 @@
           cdkDrag
         >
           <mat-expansion-panel-header>
-            <mat-panel-title>
-              <em>Lv{{ cypher.level }}</em> &nbsp; {{ cypher.name }}
-            </mat-panel-title>
+            <mat-panel-title> <em>Lv{{ cypher.level }}</em> &nbsp; {{ cypher.name }} </mat-panel-title>
           </mat-expansion-panel-header>
           <div class="container-fluid d-flex flex-grow g-0 m-0 p-0">
             <div class="p-3">{{ cypher.description }}</div>

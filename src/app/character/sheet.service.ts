@@ -92,6 +92,10 @@ export class CharacterSheetService {
     this.cyphers[i] = newCypher;
   }
 
+  setCypherLimit(cypherLimit: number): void {
+    this.summary.cypherLimit = cypherLimit;
+  }
+
   /*
    * Equipment
    */

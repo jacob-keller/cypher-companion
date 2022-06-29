@@ -39,6 +39,7 @@ import { AbilitiesAddEditComponent } from "./character/abilities/add-edit/add-ed
 import { CyphersComponent } from "./character/cyphers/cyphers.component";
 import { CyphersDeleteComponent } from "./character/cyphers/delete/delete.component";
 import { CyphersAddEditComponent } from "./character/cyphers/add-edit/add-edit.component";
+import { EditCypherLimitComponent } from "./character/cyphers/edit-cypher-limit/edit-cypher-limit.component";
 
 import { EquipmentComponent } from "./character/equipment/equipment.component";
 import { EquipmentDeleteComponent } from "./character/equipment/delete/delete.component";
@@ -69,6 +70,7 @@ import { InfoDebilitatedComponent } from "./character/summary/damage-track/info-
     CyphersComponent,
     CyphersDeleteComponent,
     CyphersAddEditComponent,
+    EditCypherLimitComponent,
     EquipmentComponent,
     EquipmentDeleteComponent,
     EquipmentAddEditComponent,
