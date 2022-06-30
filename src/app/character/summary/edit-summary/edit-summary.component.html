@@ -1,0 +1,147 @@
+<!-- @format -->
+
+<h2 mat-dialog-title>Edit character summary</h2>
+<mat-dialog-content class="edit-summary-box">
+  <div class="container d-flex flex-column g-0">
+    <div class="vstack gap-0">
+      <mat-form-field appearance="outline">
+        <mat-label>Character Name</mat-label>
+        <input
+          matInput
+          placeholder="Name"
+          [(ngModel)]="name"
+        />
+        <mat-hint>Your character's name</mat-hint>
+      </mat-form-field>
+      <div class="hstack gap-2">
+        <mat-form-field appearance="outline">
+          <mat-label>Descriptor</mat-label>
+          <input
+            matInput
+            placeholder="Descriptor"
+            [(ngModel)]="descriptor"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Type</mat-label>
+          <input
+            matInput
+            placeholder="Type"
+            [(ngModel)]="type"
+          />
+        </mat-form-field>
+      </div>
+      <div class="hstack gap-2">
+        <mat-form-field appearance="outline">
+          <mat-label>Focus</mat-label>
+          <input
+            matInput
+            placeholder="Focus"
+            [(ngModel)]="focus"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Flavor</mat-label>
+          <input
+            matInput
+            placeholder="Flavor"
+            [(ngModel)]="flavor"
+          />
+        </mat-form-field>
+      </div>
+      <h2 class="m-0">Might</h2>
+      <div class="hstack gap-2">
+        <mat-form-field appearance="outline">
+          <mat-label>Max</mat-label>
+          <input
+            matInput
+            type="number"
+            min="0"
+            placeholder="Max"
+            [(ngModel)]="mightMax"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Edge</mat-label>
+          <input
+            matInput
+            type="number"
+            min="0"
+            placeholder="Edge"
+            [(ngModel)]="mightEdge"
+          />
+        </mat-form-field>
+      </div>
+      <h2 class="m-0">Speed</h2>
+      <div class="hstack gap-2">
+        <mat-form-field appearance="outline">
+          <mat-label>Max</mat-label>
+          <input
+            matInput
+            type="number"
+            min="0"
+            placeholder="Max"
+            [(ngModel)]="speedMax"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Edge</mat-label>
+          <input
+            matInput
+            type="number"
+            min="0"
+            placeholder="Edge"
+            [(ngModel)]="speedEdge"
+          />
+        </mat-form-field>
+      </div>
+      <h2 class="m-0">Intellect</h2>
+      <div class="hstack gap-2">
+        <mat-form-field appearance="outline">
+          <mat-label>Max</mat-label>
+          <input
+            matInput
+            type="number"
+            min="0"
+            placeholder="Max"
+            [(ngModel)]="intellectMax"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Edge</mat-label>
+          <input
+            matInput
+            type="number"
+            min="0"
+            placeholder="Edge"
+            [(ngModel)]="intellectEdge"
+          />
+        </mat-form-field>
+      </div>
+      <h2 class="m-0">Advancement</h2>
+      <div class="hstack gap-2">
+        <mat-checkbox [(ngModel)]="stepIncreaseCapabilities">Pools</mat-checkbox>
+        <mat-checkbox [(ngModel)]="stepIncreaseEdge">Edge</mat-checkbox>
+        <mat-checkbox [(ngModel)]="stepExtraEffort">Effort</mat-checkbox>
+        <mat-checkbox [(ngModel)]="stepSkillTraining">Skill</mat-checkbox>
+        <mat-checkbox [(ngModel)]="stepOther">Other</mat-checkbox>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button
+    mat-button
+    mat-dialog-close
+    color="accent"
+  >
+    Cancel
+  </button>
+  <button
+    mat-button
+    (click)="saveAndClose()"
+    color="primary"
+  >
+    Save
+  </button>
+</mat-dialog-actions>

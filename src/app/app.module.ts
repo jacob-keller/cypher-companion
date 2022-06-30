@@ -27,6 +27,7 @@ import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { SummaryComponent } from "./character/summary/summary.component";
+import { EditSummaryComponent } from "./character/summary/edit-summary/edit-summary.component";
 
 import { SkillsComponent } from "./character/skills/skills.component";
 import { SkillsDeleteComponent } from "./character/skills/delete/delete.component";
@@ -61,6 +62,7 @@ import { InfoDebilitatedComponent } from "./character/summary/damage-track/info-
   declarations: [
     AppComponent,
     SummaryComponent,
+    EditSummaryComponent,
     SkillsComponent,
     SkillsDeleteComponent,
     SkillsAddEditComponent,

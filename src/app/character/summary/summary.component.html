@@ -34,4 +34,16 @@
     class="mx-auto mt-2"
     [summary]="summary"
   ></damage-track>
+
+  <div class="hstack">
+    <button
+      mat-icon-button
+      class="ms-auto"
+      color="primary"
+      (click)="editSummary()"
+      aria-label="Edit"
+    >
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div>
 </div>
