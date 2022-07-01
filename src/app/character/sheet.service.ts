@@ -10,6 +10,21 @@ import { Equipment } from "./equipment/interface";
 import { Note } from "./notes/interface";
 import { Summary } from "./summary/interface";
 import { AttributePool } from "./summary/attribute-pool/interface";
+import { Roll } from "./summary/recovery-rolls/interface";
+
+class Sheet {
+  /* Version to support loading old sheet data */
+  public version: number = 1;
+
+  public skills?: Skill[];
+  public abilities?: Ability[];
+  public cyphers?: Cypher[];
+  public equipment?: Equipment[];
+  public notes?: Note[];
+  public summary?: Summary;
+
+  constructor() {}
+}
 
 @Injectable({
   providedIn: "root",
@@ -162,5 +177,102 @@ export class CharacterSheetService {
 
   getSummaryData(): Observable<Summary> {
     return of(this.summary);
+  }
+
+  toJSON(): string {
+    var sheet: Sheet = new Sheet();
+
+    sheet.skills = this.skills;
+    sheet.abilities = this.abilities;
+    sheet.cyphers = this.cyphers;
+    sheet.equipment = this.equipment;
+    sheet.notes = this.notes;
+    sheet.summary = this.summary;
+
+    return JSON.stringify(sheet, null, 4);
+  }
+
+  fromSheetVersion1(sheet: any) {
+    /* Update the sheet data from this object. Note that we must be careful
+     * to modify the objects in place, rather than creating new references.
+     * This is critical to ensure every view updates as expected.
+     */
+
+    /* Skills */
+    this.skills.length = 0;
+    sheet.skills.forEach((item: Skill) => {
+      this.addSkill(item);
+    });
+
+    /* Abilities */
+    this.abilities.length = 0;
+    sheet.abilities.forEach((item: Ability) => {
+      this.addAbility(item);
+    });
+
+    /* Cyphers */
+    this.cyphers.length = 0;
+    sheet.cyphers.forEach((item: Cypher) => {
+      this.addCypher(item);
+    });
+
+    /* Equipment */
+    this.equipment.length = 0;
+    sheet.equipment.forEach((item: Equipment) => {
+      this.addEquipment(item);
+    });
+
+    /* Notes */
+    this.notes.length = 0;
+    sheet.notes.forEach((item: Note) => {
+      this.addNote(item);
+    });
+
+    /* Summary */
+    this.summary.name = sheet.summary.name;
+    this.summary.descriptor = sheet.summary.descriptor;
+    this.summary.type = sheet.summary.type;
+    this.summary.focus = sheet.summary.focus;
+    this.summary.flavor = sheet.summary.flavor;
+
+    this.summary.might.current = sheet.summary.might.current;
+    this.summary.might.maximum = sheet.summary.might.maximum;
+    this.summary.might.edge = sheet.summary.might.edge;
+
+    this.summary.speed.current = sheet.summary.speed.current;
+    this.summary.speed.maximum = sheet.summary.speed.maximum;
+    this.summary.speed.edge = sheet.summary.speed.edge;
+
+    this.summary.intellect.current = sheet.summary.intellect.current;
+    this.summary.intellect.maximum = sheet.summary.intellect.maximum;
+    this.summary.intellect.edge = sheet.summary.intellect.edge;
+
+    this.summary.recovery.rollBonus = sheet.summary.recovery.rollBonus;
+    this.summary.recovery.rolls.length = 0;
+    sheet.summary.recovery.rolls.forEach((item: Roll) => {
+      this.summary.recovery.rolls.push(item);
+    });
+
+    this.summary.damageTrack.category = sheet.summary.damageTrack.category;
+
+    this.summary.currencyAmount = sheet.summary.currencyAmount;
+    this.summary.cypherLimit = sheet.summary.cypherLimit;
+    this.summary.armorValue = sheet.summary.armorValue;
+
+    this.summary.stepIncreaseCapabilities = sheet.summary.stepIncreaseCapabilities;
+    this.summary.stepIncreaseEdge = sheet.summary.stepIncreaseEdge;
+    this.summary.stepExtraEffort = sheet.summary.stepExtraEffort;
+    this.summary.stepSkillTraining = sheet.summary.stepSkillTraining;
+    this.summary.stepOther = sheet.summary.stepOther;
+  }
+
+  fromJSON(sheetJSON: string) {
+    var sheet: any = JSON.parse(sheetJSON);
+
+    if (sheet.version === 1) {
+      this.fromSheetVersion1(sheet);
+    } else {
+      /* TODO: handle or report error? */
+    }
   }
 }

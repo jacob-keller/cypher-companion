@@ -35,7 +35,28 @@
     [summary]="summary"
   ></damage-track>
 
-  <div class="hstack">
+  <div class="hstack gap-2">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="exportCharacterJSON()"
+    >
+      Export
+    </button>
+    <input
+      type="file"
+      hidden
+      accept="application/json"
+      #file
+      (change)="importCharacterJSON(file)"
+    />
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="file.click()"
+    >
+      Import
+    </button>
     <button
       mat-icon-button
       class="ms-auto"
