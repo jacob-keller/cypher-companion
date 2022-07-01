@@ -8,7 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Normal Use
 
-You can load the application from Github Pages at [Cypher Companion](https://jacob-keller.github.io/cypher-compantion).
+You can load the application from Github Pages at [Cypher Companion](https://jacob-keller.github.io/cypher-companion).
 
 The website automatically saves in the background using local storage. You
 may also export the data as a JSON text file, or import such a file from
