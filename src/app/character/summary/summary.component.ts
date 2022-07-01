@@ -4,6 +4,8 @@ import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { saveAs } from "file-saver";
 
+import { MessageService } from "./message.service";
+
 import { CharacterSheetService } from "../sheet.service";
 import { Summary } from "./interface";
 import { EditSummaryComponent } from "./edit-summary/edit-summary.component";
@@ -19,7 +21,7 @@ declare var require: any;
 export class SummaryComponent implements OnInit {
   summary?: Summary;
 
-  constructor(private sheet: CharacterSheetService, public dialog: MatDialog) {}
+  constructor(private sheet: CharacterSheetService, public dialog: MatDialog, public messageService: MessageService) {}
 
   getSummary(): void {
     this.sheet.getSummaryData().subscribe((summary) => (this.summary = summary));
@@ -55,15 +57,14 @@ export class SummaryComponent implements OnInit {
 
   importCharacterJSON(input: HTMLInputElement): void {
     if (!input.files) {
-      /* TODO: handle/report errors? */
+      this.messageService.add("File not found");
       return;
     }
 
     let file = input.files[0];
     let reader = new FileReader();
     let sheet = this.sheet;
-
-    reader.readAsText(file);
+    let messages = this.messageService;
 
     reader.onload = function () {
       if (reader.result) {
@@ -72,7 +73,13 @@ export class SummaryComponent implements OnInit {
     };
 
     reader.onerror = function () {
-      /* TODO: handle/report errors? */
+      messages.add("Unable to load JSON file");
     };
+
+    /* Read the file as text */
+    reader.readAsText(file);
+
+    /* Clear the file list */
+    input.value = "";
   }
 }

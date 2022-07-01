@@ -3,6 +3,9 @@
 import { Injectable } from "@angular/core";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Observable, of } from "rxjs";
+
+import { MessageService } from "./summary/message.service";
+
 import { SkillType, Skill } from "./skills/interface";
 import { AbilityPool, Ability } from "./abilities/interface";
 import { Cypher } from "./cyphers/interface";
@@ -30,7 +33,7 @@ class Sheet {
   providedIn: "root",
 })
 export class CharacterSheetService {
-  constructor() {}
+  constructor(public messageService: MessageService) {}
 
   /*
    * Skills
@@ -179,6 +182,10 @@ export class CharacterSheetService {
     return of(this.summary);
   }
 
+  /*
+   * Saving and Loading
+   */
+
   toJSON(): string {
     var sheet: Sheet = new Sheet();
 
@@ -235,6 +242,10 @@ export class CharacterSheetService {
     this.summary.focus = sheet.summary.focus;
     this.summary.flavor = sheet.summary.flavor;
 
+    this.summary.tier = sheet.summary.tier;
+    this.summary.effort = sheet.summary.effort;
+    this.summary.xp = sheet.summary.xp;
+
     this.summary.might.current = sheet.summary.might.current;
     this.summary.might.maximum = sheet.summary.might.maximum;
     this.summary.might.edge = sheet.summary.might.edge;
@@ -272,7 +283,7 @@ export class CharacterSheetService {
     if (sheet.version === 1) {
       this.fromSheetVersion1(sheet);
     } else {
-      /* TODO: handle or report error? */
+      this.messageService.add(`Unrecognized character sheet version '${sheet.version}'`);
     }
   }
 }

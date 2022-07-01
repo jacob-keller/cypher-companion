@@ -47,13 +47,13 @@
       type="file"
       hidden
       accept="application/json"
-      #file
-      (change)="importCharacterJSON(file)"
+      #importFile
+      (change)="importCharacterJSON(importFile)"
     />
     <button
       mat-raised-button
       color="accent"
-      (click)="file.click()"
+      (click)="importFile.click()"
     >
       Import
     </button>
@@ -67,4 +67,5 @@
       <mat-icon>edit</mat-icon>
     </button>
   </div>
+  <app-messages></app-messages>
 </div>
