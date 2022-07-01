@@ -2,7 +2,8 @@
 
 import { Injectable } from "@angular/core";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
-import { Observable, of } from "rxjs";
+import { Observable, of, Subject } from "rxjs";
+import { debounceTime } from "rxjs/operators";
 
 import { MessageService } from "./summary/message.service";
 
@@ -33,7 +34,37 @@ class Sheet {
   providedIn: "root",
 })
 export class CharacterSheetService {
-  constructor(public messageService: MessageService) {}
+  private saveObserver: Observable<null>;
+  private saveThrottler = new Subject<null>();
+
+  constructor(public messageService: MessageService) {
+    /* Load saved data if we have any */
+    this.loadFromStorage();
+
+    this.saveObserver = this.saveThrottler.pipe(debounceTime(500));
+
+    const subscriber = this.saveObserver.subscribe((result) => {
+      this.saveToStorage();
+    });
+  }
+
+  private saveToStorage() {
+    var sheetJSON = this.toJSON();
+
+    window.localStorage.setItem("cypher-companion-data", sheetJSON);
+  }
+
+  private loadFromStorage() {
+    var sheetJSON = window.localStorage.getItem("cypher-companion-data");
+
+    if (sheetJSON) {
+      this.fromJSON(sheetJSON);
+    }
+  }
+
+  save() {
+    this.saveThrottler.next(null);
+  }
 
   /*
    * Skills
@@ -46,18 +77,22 @@ export class CharacterSheetService {
 
   moveSkill(event: CdkDragDrop<Skill[]>): void {
     moveItemInArray(this.skills, event.previousIndex, event.currentIndex);
+    this.save();
   }
 
   deleteSkill(i: number): void {
     this.skills.splice(i, 1);
+    this.save();
   }
 
   addSkill(skill: Skill): void {
     this.skills.push(skill);
+    this.save();
   }
 
   replaceSkill(i: number, newSkill: Skill): void {
     this.skills[i] = newSkill;
+    this.save();
   }
 
   /*
@@ -71,18 +106,22 @@ export class CharacterSheetService {
 
   moveAbility(event: CdkDragDrop<Ability[]>): void {
     moveItemInArray(this.abilities, event.previousIndex, event.currentIndex);
+    this.save();
   }
 
   deleteAbility(i: number): void {
     this.abilities.splice(i, 1);
+    this.save();
   }
 
   addAbility(ability: Ability): void {
     this.abilities.push(ability);
+    this.save();
   }
 
   replaceAbility(i: number, newAbility: Ability): void {
     this.abilities[i] = newAbility;
+    this.save();
   }
 
   /*
@@ -96,22 +135,27 @@ export class CharacterSheetService {
 
   moveCypher(event: CdkDragDrop<Cypher[]>): void {
     moveItemInArray(this.cyphers, event.previousIndex, event.currentIndex);
+    this.save();
   }
 
   deleteCypher(i: number): void {
     this.cyphers.splice(i, 1);
+    this.save();
   }
 
   addCypher(cypher: Cypher): void {
     this.cyphers.push(cypher);
+    this.save();
   }
 
   replaceCypher(i: number, newCypher: Cypher): void {
     this.cyphers[i] = newCypher;
+    this.save();
   }
 
   setCypherLimit(cypherLimit: number): void {
     this.summary.cypherLimit = cypherLimit;
+    this.save();
   }
 
   /*
@@ -125,26 +169,32 @@ export class CharacterSheetService {
 
   moveEquipment(event: CdkDragDrop<Equipment[]>): void {
     moveItemInArray(this.equipment, event.previousIndex, event.currentIndex);
+    this.save();
   }
 
   deleteEquipment(i: number): void {
     this.equipment.splice(i, 1);
+    this.save();
   }
 
   addEquipment(equipment: Equipment): void {
     this.equipment.push(equipment);
+    this.save();
   }
 
   replaceEquipment(i: number, newEquipment: Equipment): void {
     this.equipment[i] = newEquipment;
+    this.save();
   }
 
   setArmorValue(armorValue: number) {
     this.summary.armorValue = armorValue;
+    this.save();
   }
 
   setCurrencyAmount(currencyAmount: string) {
     this.summary.currencyAmount = currencyAmount;
+    this.save();
   }
 
   /*
@@ -158,18 +208,22 @@ export class CharacterSheetService {
 
   moveNote(event: CdkDragDrop<Note[]>): void {
     moveItemInArray(this.notes, event.previousIndex, event.currentIndex);
+    this.save();
   }
 
   deleteNote(i: number): void {
     this.notes.splice(i, 1);
+    this.save();
   }
 
   addNote(note: Note): void {
     this.notes.push(note);
+    this.save();
   }
 
   replaceNote(i: number, newNote: Note): void {
     this.notes[i] = newNote;
+    this.save();
   }
 
   /*
@@ -275,6 +329,8 @@ export class CharacterSheetService {
     this.summary.stepExtraEffort = sheet.summary.stepExtraEffort;
     this.summary.stepSkillTraining = sheet.summary.stepSkillTraining;
     this.summary.stepOther = sheet.summary.stepOther;
+
+    this.save();
   }
 
   fromJSON(sheetJSON: string) {

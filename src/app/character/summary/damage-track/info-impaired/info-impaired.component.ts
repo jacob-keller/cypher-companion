@@ -11,6 +11,4 @@ export class InfoImpairedComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
-  saveCharacterSheet(): void {}
 }

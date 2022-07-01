@@ -11,6 +11,4 @@ export class InfoDebilitatedComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
-  saveCharacterSheet(): void {}
 }

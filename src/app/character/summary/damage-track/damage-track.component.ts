@@ -15,9 +15,11 @@ export class DamageTrackComponent implements OnInit {
 
   @Input() summary?: Summary;
 
-  constructor() {}
+  constructor(private sheet: CharacterSheetService) {}
 
   ngOnInit(): void {}
 
-  saveCharacterSheet(): void {}
+  saveCharacterSheet(): void {
+    this.sheet.save();
+  }
 }

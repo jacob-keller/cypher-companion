@@ -22,6 +22,7 @@ export class TierInfoComponent implements OnInit {
     }
 
     this.summary.xp++;
+    this.sheet.save();
   }
 
   decrementXP(): void {
@@ -34,5 +35,6 @@ export class TierInfoComponent implements OnInit {
       return;
     }
     this.summary.xp--;
+    this.sheet.save();
   }
 }

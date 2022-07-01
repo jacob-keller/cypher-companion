@@ -12,9 +12,11 @@ import { Summary } from "../interface";
 export class RecoveryRollsComponent implements OnInit {
   @Input() summary?: Summary;
 
-  constructor() {}
+  constructor(private sheet: CharacterSheetService) {}
 
   ngOnInit(): void {}
 
-  saveCharacterSheet(): void {}
+  saveCharacterSheet(): void {
+    this.sheet.save();
+  }
 }

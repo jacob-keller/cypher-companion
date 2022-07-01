@@ -37,7 +37,7 @@ export class SummaryComponent implements OnInit {
       maxHeight: "90vh",
     });
 
-    dialogRef.afterClosed().subscribe();
+    dialogRef.afterClosed().subscribe((result) => this.sheet.save());
   }
 
   exportCharacterJSON(): void {

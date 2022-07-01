@@ -18,9 +18,11 @@ export class AttributePoolComponent implements OnInit {
 
   increment(): void {
     this.pool?.increment();
+    this.sheet.save();
   }
 
   decrement(): void {
     this.pool?.decrement();
+    this.sheet.save();
   }
 }
